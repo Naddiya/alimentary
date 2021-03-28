@@ -1,0 +1,62 @@
+loose weight without rebound effect : -15% less calories max.
+Increase activities 20%.
+
+Total less calories maximum : current amount calories * 0.25 
+
+==========================
+CALCULATE NEEDS
+==========================
+EM = Équivalant métabolique (rapport consomation energetique activité vs repos)
+calories dépensées = EM x Poids (enkg) x Durée(en minutes) / 60;
+
+==========================
+IMC 
+==========================
+poids(kg) / taille(metre) ²
+ex) 116/1.72²= 39.21
+
+==========================
+BESOINS Energétique en Calories : 
+==========================
+
+* Femme = PA *[(9.99*poids) + (6.25*taille) - (4.92*Age) - 161]
+* Homme = PA *[(9.9*Poids) + (6.25*Taille) -(9.92*Age) + 5]
+
+PA = Physical Activity
+
+PA Indice de base selon l'activité (l'emploi):
+* Trés faible : 1.4
+* Faible : 1.5
+* Modéré: 1.6
+* Important : 1.7
+
+PA Indice Spécifique selon la pratique sportive :
+* Faible : 0.02*heures/semaine 
+(marche lente, yoga, billard, etc.)
+* Moyenne : 0.04*heures/semaine 
+(marche rapide, cyclo-tourisme, etc.)
+* Forte : 0.06*heures/semaine
+(jogging, squash, etc.)
+
+Ex d'application : 
+
+Sylvie: 32 ans, 1.60m , 78kg (IMC : 30kg/m²)
+Caissière, Marche lentement 1h par jour pour aller travailler.
+PA Base : 1.4 / PA Spécifique : 0.02*5 = 0.1 
+=> PA global = 1.4 + 0.1 = 1.5
+
+Besoin energetique : 1.5 * [(9.9*78) + (6.25*160) - (4.92*32) - 161
+= 2191.17
+
+==========================
+POUR COMMENCER
+==========================
+1/ En combien de temps ?
+
+2/ Ou j'en suis ?
+
+3/ Ma consommation actuelle
+
+4/ Max de la réduction
+
+5/ Mon projet d'amaigrissement
