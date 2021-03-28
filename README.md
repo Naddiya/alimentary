@@ -19,8 +19,8 @@ I'm not a doctor, either a nutrition professional, this is my main source : "L'A
 | As a | I would like to | in order to |
 |--|--|--|
 | visitor | calculate my energetic needs :woman_cartwheeling:| to visualise the amount of calories needed to keep my current weight|
-| visitor | calculate the max calories I can remove from my current diet :man_with_probing_cane:|
-| user | enter my weight mesurement |
+| visitor | calculate the max calories I can remove from my current diet :man_with_probing_cane:| 
+| user | enter my weight mesurement | to visualise the progress
 | user | see the max and min weight diagram | to compare those to my actual weight loss
 | user | calculate the calorie amount I get |
 | user | calculate the amount of calories I spend/use|
