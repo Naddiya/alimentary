@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const IBM = () => {
+const BMI = () => {
   const [bmi, setBMI] = useState(0);
   const [clear, setClear] = useState(false);
 
@@ -26,15 +26,15 @@ const IBM = () => {
   };
 
   return (
-    <div className="ibm">
+    <div className="BMI">
       <h2> Calculer l'indice de masse corporel</h2>
       <p>
-        weight divides Height²
+        Le poids divisé par le carré de la taille en metre.
       </p>
       <p>
-        has this ex) 116/1.72² = 39.21;
+        ex) 116/1.72² = 39.21;
       </p>
-      <form>
+      <form className="">
         <label htmlFor="height">Taille:</label>
         <input type="number" id="height" name="height" />
 
@@ -44,8 +44,10 @@ const IBM = () => {
         <label htmlFor="bmi">Resultat : </label>
         <input id="bmi" value={bmi} readOnly />
 
-        <button onClick={calculate}>Calculer</button>
-        <button onClick={Clear}>Initialiser</button>
+        <div className="call-to-action">
+          <button className="button-calculate" onClick={calculate}>Calculer</button>
+          <button className="button-clear" onClick={Clear}>Initialiser</button>
+        </div>
       </form>
     </div>
 
@@ -53,4 +55,4 @@ const IBM = () => {
 };
 
 
-export default IBM;
+export default BMI;

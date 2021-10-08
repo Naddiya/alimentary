@@ -1,0 +1,35 @@
+form {
+  width: 50%;
+  display:flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+.activity, .sport, .gender {
+  display:flex;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.call-to-action {
+  margin-top: 1rem;
+  display:flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.button {
+  margin: 15px;
+  &-calculate{
+    color: black;
+    border:grey solid 1px;
+    background-color: rgb(120, 172, 43);
+    border-radius: 10px;
+  }
+  &-clear{
+    color: white;
+    border:grey solid 1px;
+    background-color: rgb(219, 65, 96);
+    border-radius: 10px;
+  }
+}
