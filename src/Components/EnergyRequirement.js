@@ -4,8 +4,9 @@ import { activity, gender, sport } from '../../data/data';
 const EnergyRequirement = () => {
   const [needs, setNeeds] = useState(0);
   const [clear, setClear] = useState(false);
-  const [isChecked, setIsChecked] = useState(false);
-  const [activityLevel, setActivityLevel] = useState('')
+  const [checked, setChecked] = useState(false);
+  const [ratio, setRatio] = useState('');
+
 
   const activityCheckBoxes = activity.map(elem => ({
     name: elem.level,
@@ -26,10 +27,10 @@ const EnergyRequirement = () => {
   }));
 
   const handleChange = (e) => {
-    setActivityLevel(e.target.value)
-    setIsChecked(!isChecked)
-  }
-console.log(activityLevel)
+    setRatio(e.target.value);
+    setChecked(!checked);
+  };
+  console.log(ratio);
 
 
   const calculate = (e) => {
@@ -41,6 +42,8 @@ console.log(activityLevel)
 
     let weight = document.querySelector('#weight').value;
     if (weight == '') return;
+
+
 
     let needs = (Math.abs(weight) * 9.99) / (Math.abs(height) * 6.25);
 
@@ -62,12 +65,10 @@ console.log(activityLevel)
       <h2>Calculer vos dépenses energétiques</h2>
 
       <form className="calory-needs">
-
         <label htmlFor="height">Taille:</label>
         <input type="number" id="height" name="height" />
         <label htmlFor="weight">Poids:</label>
         <input type="number" id="weight" name="weight" />
-
 
         <h4>Dépense énergétique de base</h4>
         <div className="activity">
@@ -75,9 +76,9 @@ console.log(activityLevel)
             <div key={elem.name.toString()}>
               <input
                 type="checkbox"
-                name={elem.name}
+                name="activityLevel"
                 value={elem.value}
-                defaultChecked={isChecked}
+                defaultChecked={checked}
                 onChange={handleChange}
               />
               <label htmlFor={elem.name}>{elem.name}</label>
@@ -90,12 +91,13 @@ console.log(activityLevel)
           {sportCheckBoxes.map(elem =>
             <div key={elem.name.toString()}>
               <input
+                className="cb"
                 type="checkbox"
-                name={elem.name}
+                name="sportLevel"
                 value={elem.value}
-                defaultChecked={isChecked}
+                defaultChecked={checked}
                 onChange={handleChange}
-                />
+              />
               <label htmlFor={elem.name}>{elem.name}</label>
             </div>
           )}
@@ -107,9 +109,9 @@ console.log(activityLevel)
             <div key={elem.name.toString()}>
               <input
                 type="checkbox"
-                name={elem.name}
+                name="genderType"
                 value={elem.value}
-                defaultChecked={isChecked}
+                defaultChecked={checked}
                 onChange={handleChange}
               />
               <label htmlFor={elem.name}>{elem.name}</label>
