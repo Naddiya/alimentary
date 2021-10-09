@@ -90,7 +90,7 @@ const EnergyRequirement = () => {
 
         <h4>Genre</h4>
         <div className="gender">
-        {genderCheckBoxes.map(elem =>
+          {genderCheckBoxes.map(elem =>
             <div key={elem.gender.toString()}>
               <input
                 type="checkbox"

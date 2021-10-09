@@ -27,15 +27,8 @@ module.exports = {
         ],
       },
       {
-        test: /\.png$/,
-        loader: 'file?name=assets/icons/[name].[hash].[ext]'
-      },
-      {
-        test: /\.html$/,
-        loader: 'html',
-        query: {
-          interpolate: 'require'
-        }
+        test: /\.(png|svg|jpg|gif|ico)$/,
+        use: ['file-loader?name=[name].[ext]']
       }
     ]
   },
