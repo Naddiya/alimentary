@@ -1,7 +1,8 @@
 import React from "react";
 import BMI from './BMI'
 import EnergyRequirement from "./EnergyRequirement";
-import '../styles/componentStyles/Balance.scss'
+import '../styles/Balance.scss'
+
 function Balance() {
   return (
     <div>

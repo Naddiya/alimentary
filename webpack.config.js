@@ -26,11 +26,23 @@ module.exports = {
           "sass-loader",
         ],
       },
+      {
+        test: /\.png$/,
+        loader: 'file?name=assets/icons/[name].[hash].[ext]'
+      },
+      {
+        test: /\.html$/,
+        loader: 'html',
+        query: {
+          interpolate: 'require'
+        }
+      }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public", "index.html"),
+      inject: "head"
     }),
   ],
   mode: 'development'

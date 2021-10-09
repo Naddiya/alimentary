@@ -11,6 +11,10 @@ form {
   gap: 8px;
 }
 
+.gender{
+  margin-bottom: 1rem;
+}
+
 .call-to-action {
   margin-top: 1rem;
   display:flex;
@@ -18,8 +22,13 @@ form {
   gap: 5px;
 }
 
+#calculation-result {
+  margin-bottom: 0.1rem;
+  border: solid 2px steelblue;
+}
+
 .button {
-  margin: 15px;
+  gap: 10px;
   &-calculate{
     color: black;
     border:grey solid 1px;

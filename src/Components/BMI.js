@@ -12,9 +12,9 @@ const BMI = () => {
     if (height == '') return;
     let weight = document.querySelector('#weight').value;
     if (weight == '') return;
-    let bmi = (Math.abs(height) / Math.pow(Math.abs(weight), 2)).toFixed(2);
+    let bmi = (Math.abs(weight) / Math.pow(Math.abs(height), 2)).toFixed(2);
     setBMI(bmi);
-    document.querySelector('#bmi').value;
+    document.querySelector('#calculation-result').value;
   };
 
   const Clear = (e) => {
@@ -41,8 +41,8 @@ const BMI = () => {
         <label htmlFor="weight">Poids:</label>
         <input type="number" id="weight" name="weight" />
 
-        <label htmlFor="bmi">Resultat : </label>
-        <input id="bmi" value={bmi} readOnly />
+        <label htmlFor="calculation-result">Resultat : </label>
+        <input id="calculation-result" value={bmi} readOnly />
 
         <div className="call-to-action">
           <button className="button-calculate" onClick={calculate}>Calculer</button>
