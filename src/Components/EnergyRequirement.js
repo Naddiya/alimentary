@@ -1,27 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { activity, gender, sport } from '../../data/data';
 
 const EnergyRequirement = () => {
   const [needs, setNeeds] = useState(0);
   const [clear, setClear] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+  const [activityLevel, setActivityLevel] = useState('')
 
-  const [activityCheckBoxes, setActivityCheckboxes] = useState(activity.map(elem => ({
-    activity: elem.level,
+  const activityCheckBoxes = activity.map(elem => ({
+    name: elem.level,
     value: elem.ratio,
     checked: false
-  })));
+  }));
 
-  const [genderCheckBoxes, setgenderCheckboxes] = useState(gender.map(elem => ({
-    gender: elem.type,
+  const genderCheckBoxes = gender.map(elem => ({
+    name: elem.type,
     value: elem.ratio,
     checked: false
-  })));
+  }));
 
-  const [sportCheckBoxes, setsportCheckboxes] = useState(sport.map(elem => ({
-    sport: elem.level,
+  const sportCheckBoxes = sport.map(elem => ({
+    name: elem.level,
     value: elem.ratio,
     checked: false
-  })));
+  }));
+
+  const handleChange = (e) => {
+    setActivityLevel(e.target.value)
+    setIsChecked(!isChecked)
+  }
+console.log(activityLevel)
+
 
   const calculate = (e) => {
     e.preventDefault();
@@ -63,13 +72,15 @@ const EnergyRequirement = () => {
         <h4>Dépense énergétique de base</h4>
         <div className="activity">
           {activityCheckBoxes.map(elem =>
-            <div key={elem.activity.toString()}>
+            <div key={elem.name.toString()}>
               <input
                 type="checkbox"
-                name={elem.activity}
-                value={elem.ratio}
+                name={elem.name}
+                value={elem.value}
+                defaultChecked={isChecked}
+                onChange={handleChange}
               />
-              <label htmlFor={elem.activity}>{elem.activity}</label>
+              <label htmlFor={elem.name}>{elem.name}</label>
             </div>
           )}
         </div>
@@ -77,13 +88,15 @@ const EnergyRequirement = () => {
         <h4>Dépense selon la pratique sportive</h4>
         <div className="sport">
           {sportCheckBoxes.map(elem =>
-            <div key={elem.sport.toString()}>
+            <div key={elem.name.toString()}>
               <input
                 type="checkbox"
-                name={elem.sport}
-                value={elem.ratio}
-              />
-              <label htmlFor={elem.sport}>{elem.sport}</label>
+                name={elem.name}
+                value={elem.value}
+                defaultChecked={isChecked}
+                onChange={handleChange}
+                />
+              <label htmlFor={elem.name}>{elem.name}</label>
             </div>
           )}
         </div>
@@ -91,13 +104,15 @@ const EnergyRequirement = () => {
         <h4>Genre</h4>
         <div className="gender">
           {genderCheckBoxes.map(elem =>
-            <div key={elem.gender.toString()}>
+            <div key={elem.name.toString()}>
               <input
                 type="checkbox"
-                name={elem.gender}
-                value={elem.ratio}
+                name={elem.name}
+                value={elem.value}
+                defaultChecked={isChecked}
+                onChange={handleChange}
               />
-              <label htmlFor={elem.type}>{elem.gender}</label>
+              <label htmlFor={elem.name}>{elem.name}</label>
             </div>
           )}
 
