@@ -5,53 +5,50 @@ const EnergyRequirement = () => {
   const [needs, setNeeds] = useState(0);
   const [clear, setClear] = useState(false);
   const [checked, setChecked] = useState(false);
+  const [uncheck, setUncheck] = useState(true);
   const [ratio, setRatio] = useState('');
 
-
+  // Defines checkboxes
   const activityCheckBoxes = activity.map(elem => ({
     name: elem.level,
     value: elem.ratio,
-    checked: false
+    state: checked
   }));
-
   const genderCheckBoxes = gender.map(elem => ({
     name: elem.type,
     value: elem.ratio,
-    checked: false
   }));
-
   const sportCheckBoxes = sport.map(elem => ({
     name: elem.level,
     value: elem.ratio,
-    checked: false
   }));
 
+  // Handles changes
   const handleChange = (e) => {
-    setRatio(e.target.value);
+    // set checked
     setChecked(!checked);
+    // get target value
+    setRatio(e.target.value);
+    // uncheck other boxes in same group
+    const boxes = document.getElementsByClassName(e.target.className);
+    for (let i = 0; i < boxes.length; i++) {
+      if (boxes[i].id !== e.target.id) {
+        boxes[i].checked = false;
+      }
+    }
   };
-  console.log(ratio);
 
-
+  // calculate Physical activity
   const calculate = (e) => {
     e.preventDefault();
     if (clear) setClear(false);
-
-    let height = document.querySelector('#height').value;
-    if (height == '') return;
-
-    let weight = document.querySelector('#weight').value;
-    if (weight == '') return;
-
-
-
-    let needs = (Math.abs(weight) * 9.99) / (Math.abs(height) * 6.25);
-
-    setNeeds(needs);
-
+    console.log(e)
+    
+    
     document.querySelector('#calculation-result').value;
   };
-
+  
+  // clear after calculation
   const Clear = (e) => {
     e.preventDefault();
     console.log("cleared");
@@ -59,7 +56,7 @@ const EnergyRequirement = () => {
     setClear(true);
     setNeeds(0);
   };
-
+  
   return (
     <div className="energy">
       <h2>Calculer vos dépenses energétiques</h2>
@@ -75,10 +72,12 @@ const EnergyRequirement = () => {
           {activityCheckBoxes.map(elem =>
             <div key={elem.name.toString()}>
               <input
+                className="activity-boxes"
                 type="checkbox"
-                name="activityLevel"
+                name={elem.name}
+                id={elem.name}
                 value={elem.value}
-                defaultChecked={checked}
+                defaultChecked={elem.checked}
                 onChange={handleChange}
               />
               <label htmlFor={elem.name}>{elem.name}</label>
@@ -91,11 +90,12 @@ const EnergyRequirement = () => {
           {sportCheckBoxes.map(elem =>
             <div key={elem.name.toString()}>
               <input
-                className="cb"
+                className="sport-boxes"
                 type="checkbox"
-                name="sportLevel"
+                name={elem.name}
                 value={elem.value}
-                defaultChecked={checked}
+                id={elem.name}
+                defaultChecked={elem.checked}
                 onChange={handleChange}
               />
               <label htmlFor={elem.name}>{elem.name}</label>
@@ -108,10 +108,12 @@ const EnergyRequirement = () => {
           {genderCheckBoxes.map(elem =>
             <div key={elem.name.toString()}>
               <input
+                className= "gender-boxes"
                 type="checkbox"
-                name="genderType"
+                name={elem.name}
                 value={elem.value}
-                defaultChecked={checked}
+                id={elem.name}
+                defaultChecked={elem.checked}
                 onChange={handleChange}
               />
               <label htmlFor={elem.name}>{elem.name}</label>
