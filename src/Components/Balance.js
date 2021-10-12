@@ -1,7 +1,8 @@
 import React from "react";
-import BMI from './BMI'
+import BMI from './BMI';
 import EnergyNeeds from "./EnergyRequirement";
-import '../styles/Balance.scss'
+import Strategy from "./Strategy";
+import '../styles/Balance.scss';
 
 function Balance() {
   return (
@@ -9,6 +10,7 @@ function Balance() {
       <h1> BALANCE </h1>
       <BMI />
       <EnergyNeeds />
+      <Strategy />
     </div>
   );
 }
