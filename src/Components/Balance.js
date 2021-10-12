@@ -1,6 +1,6 @@
 import React from "react";
 import BMI from './BMI'
-import EnergyRequirement from "./EnergyRequirement";
+import EnergyNeeds from "./EnergyRequirement";
 import '../styles/Balance.scss'
 
 function Balance() {
@@ -8,7 +8,7 @@ function Balance() {
     <div>
       <h1> BALANCE </h1>
       <BMI />
-      <EnergyRequirement />
+      <EnergyNeeds />
     </div>
   );
 }

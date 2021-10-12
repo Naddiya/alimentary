@@ -20,11 +20,11 @@ export const activity = [
 export const gender = [
   {
     type: "female",
-    ratio: [4.92, -161],
+    ratio: -161
   },
   {
     type: "male",
-    ratio: [9.92, 5]
+    ratio: 5
   }
 ];
 
