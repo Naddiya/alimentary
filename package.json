@@ -8,7 +8,7 @@
     "test": "jest",
     "format": "prettier --write \"src/**/**/.{js, jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "dev": "webpack serve",
+    "dev": "webpack serve --open",
     "build": "webpack",
     "clean": "rm -rf .cache dist .parcel-cache"
   },

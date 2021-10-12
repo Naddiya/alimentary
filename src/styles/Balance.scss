@@ -7,7 +7,7 @@ form {
 
 .activity, .sport, .gender {
   display:flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   gap: 8px;
 }
 
