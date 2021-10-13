@@ -11,10 +11,10 @@ const Strategy = () => {
     if (calories == '') return;
     
     
-    let maxCalories = Math.abs(calories) * 0.15;
+    let maxReduceCalories = Math.abs(calories) * 0.15;
     let maxIncreaseActivity = Math.abs(calories) * 0.20;
     
-    setEntriesDeficit(maxCalories);
+    setEntriesDeficit(maxReduceCalories);
     setIncreaseActivity(maxIncreaseActivity);
   };
 
