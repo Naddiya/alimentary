@@ -44,7 +44,6 @@ const EnergyRequirement = () => {
     setInputCheckboxes(values => ({ ...values, [name]: value }));
   };
 
-  console.log(inputCheckboxes)
   // calculate Physical activity
   const calculate = (e) => {
     e.preventDefault();
@@ -100,7 +99,7 @@ const EnergyRequirement = () => {
           onChange={e => setAge(e.target.value)}
         />
 
-        <h4>Dépense énergétique de base</h4>
+        <h4>Dépenses énergétique de base</h4>
         <div className="activity">
           {activityCheckBoxes.map(elem =>
             <div key={elem.name.toString()}>
@@ -118,7 +117,7 @@ const EnergyRequirement = () => {
           )}
         </div>
 
-        <h4>Dépense selon la pratique sportive</h4>
+        <h4>Dépenses selon la pratique sportive</h4>
         <div className="sport">
           {sportCheckBoxes.map(elem =>
             <div key={elem.name.toString()}>
@@ -145,7 +144,7 @@ const EnergyRequirement = () => {
           />
         </div>
 
-        <h4>Genre</h4>
+        <h4>Dépenses selon le genre</h4>
         <div className="gender">
           {genderCheckBoxes.map(elem =>
             <div key={elem.name.toString()}>
