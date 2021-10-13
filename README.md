@@ -29,7 +29,7 @@ I'd like to propose a free and open-source tool to help for durable and healthy 
 
 ```bash
 yarn install
-yarn start
+yarn dev
 ```
 
 ## :fishing_pole_and_fish: Sources
