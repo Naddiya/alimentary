@@ -5,7 +5,7 @@ const BMI = () => {
   const [bmi, setBMI] = useState(0);
   const [clear, setClear] = useState(false);
 
-  const calculate = (e) => {
+  const Calculate = (e) => {
     e.preventDefault();
     if (clear) setClear(false);
     let height = document.querySelector('#height').value;
@@ -45,7 +45,7 @@ const BMI = () => {
         <input id="calculation-result" value={bmi} readOnly />
 
         <div className="call-to-action">
-          <button className="button-calculate" onClick={calculate}>Calculer</button>
+          <button className="button-calculate" onClick={Calculate}>Calculer</button>
           <button className="button-clear" onClick={Clear}>Initialiser</button>
         </div>
       </form>
