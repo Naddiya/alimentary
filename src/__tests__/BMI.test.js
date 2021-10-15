@@ -1,7 +1,8 @@
+
 import React from "react";
 import ReactDOM from "react-dom";
 import BMI from "../Components/BMI";
-import { within } from "@testing-library/dom";
+import { render, fireEvent } from '@testing-library/react';
 
 const container = document.createElement("div");
 ReactDOM.render(<BMI />, container);

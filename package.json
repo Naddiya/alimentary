@@ -9,7 +9,7 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "test": "jest --env=jsdom",
-    "test:cov": "jest --coverage",
+    "test:cov": "jest --env=jsdom --coverage",
     "format": "prettier --write \"src/**/**/.{js, jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "dev": "webpack serve --open",
