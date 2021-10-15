@@ -2,15 +2,18 @@
   "name": "alimentary",
   "version": "1.0.0",
   "description": "client side weight loss monitoring app",
+  "license": "MIT",
+  "author": "nadia.m",
   "source": "public/index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "test": "jest",
+    "test": "jest --env=jsdom",
+    "test:cov": "jest --coverage",
     "format": "prettier --write \"src/**/**/.{js, jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "dev": "webpack serve --open",
     "build": "webpack",
-    "clean": "rm -rf .cache dist .parcel-cache"
+    "clean": "rm -rf .cache dist node_modules"
   },
   "repository": {
     "type": "git",
@@ -22,8 +25,6 @@
     "reactJS",
     "javascript"
   ],
-  "author": "nadia.m",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Naddiya/alimentary-client/issues"
   },
@@ -41,6 +42,9 @@
     "@commitlint/cli": "^13.2.1",
     "@commitlint/config-conventional": "^13.2.0",
     "@testing-library/react": "^12.1.2",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@types/jest": "^27.0.2",
+    "babel-jest": "^27.2.5",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.3.0",
     "eslint": "^7.32.0",
@@ -51,6 +55,7 @@
     "html-webpack-plugin": "^5.3.2",
     "husky": "^7.0.2",
     "jest": "^27.2.5",
+    "jest-scss-transform": "^1.0.1",
     "prettier": "2.4.1",
     "react-test-renderer": "^17.0.2",
     "sass": "^1.42.1",

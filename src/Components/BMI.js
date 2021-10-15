@@ -27,7 +27,7 @@ const BMI = () => {
 
   return (
     <div className="BMI">
-      <h2> Calculer l'indice de masse corporel</h2>
+      <h2>Calculer l'indice de masse corporel</h2>
       <p>
         Le poids divisé par le carré de la taille en metre.
       </p>
