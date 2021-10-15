@@ -5,6 +5,7 @@
   "license": "MIT",
   "author": "nadia.m",
   "source": "public/index.html",
+  "private": "true",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "test": "jest --env=jsdom",
