@@ -1,18 +1,18 @@
 import React from "react";
-import BMI from './BMI';
+import BodyMassIndex from './BodyMassIndex';
 import EnergyNeeds from "./EnergyRequirement";
 import Strategy from "./Strategy";
-import '../styles/Balance.scss';
+import '../styles/bodymassindex.scss';
 
-function Balance() {
+function Home() {
   return (
     <div>
       <h1> BALANCE </h1>
-      <BMI />
+      <BodyMassIndex />
       <EnergyNeeds />
       <Strategy />
     </div>
   );
 }
 
-export default Balance;
+export default Home;
