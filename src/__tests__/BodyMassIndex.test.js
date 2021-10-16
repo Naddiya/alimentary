@@ -5,7 +5,7 @@ import { render, screen, fireEvent, cleanup } from "@testing-library/react";
 
 
 afterEach(cleanup);
-describe("Components/BodyMassIndex", () => {
+describe("BodyMassIndex", () => {
   it("should be rendered properly", () => {
     const { container } = render(<BodyMassIndex />);
 
@@ -26,13 +26,21 @@ describe('button calculate', () => {
   it('should call props.onClick when clicked', () => {
     const mockedCalculate = jest.fn();
     const { getByText } = render(
-      <button id="button-calculate" className="button-calculate" onClick={mockedCalculate}>Calcul du BMI</button>
+      <button onClick={mockedCalculate}>Calcul du BMI</button>
     );
     fireEvent.click(getByText(/Calcul du BMI/i));
     expect(mockedCalculate).toHaveBeenCalledTimes(1);
   });
 });
 
-describe('function calculate', () => {
+describe('button clear', () => {
+  it('should call props.onClick when clicked', () => {
+    const mockedClearForm = jest.fn();
+    const { getByText } = render(
+      <button onClick={mockedClearForm}>Initialiser</button>
+    );
+    fireEvent.click(getByText(/Initialiser/i));
+    expect(mockedClearForm).toHaveBeenCalledTimes(1);
+  });
+});
 
-})
