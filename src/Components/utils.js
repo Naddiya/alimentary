@@ -10,14 +10,20 @@ export function calculateBmi(weight, height) {
   return (Math.abs(weight) / Math.pow(Math.abs(height), 2)).toFixed(2);
 }
 
-export function calculateEnergyRequirement(weight, height, age, sportTime, inputCheckboxes){
-  let weightPart = 9.9*weight;
-  let heightPart = 6.25*height;
-  let agePart = 4.92*age;
-  let genderPart = parseInt(inputCheckboxes.genderLevel);
-  let basicNeeds = weightPart + heightPart - agePart + genderPart;
-  let activityPart = Math.abs(inputCheckboxes.activityLevel);
-  let sportPart = Math.abs(inputCheckboxes.sportLevel) * sportTime;
-  let totalNeeds = basicNeeds * (activityPart + sportPart);
-  return Math.floor(totalNeeds)
+
+export function calculateEnergyRequirement(targetValues) {
+  const weight = Math.abs(targetValues.weight);
+  const height = Math.abs(targetValues.height);
+  const age = Math.abs(targetValues.age);
+  const activity = Math.abs(targetValues.activityLevel);
+  const genderLevel = parseInt(targetValues.genderLevel);
+  const sportTime = Math.abs(targetValues.sportTime);
+  const sportLevel = Math.abs(targetValues.sportLevel);
+
+  const genderPart = genderLevel;
+  const basicNeeds = 9.9 * weight + 6.25 * height - 4.92 * age + genderPart;
+
+  const totalNeeds = Math.floor(basicNeeds * (activity + (sportLevel * sportTime)));
+
+  return totalNeeds;
 }

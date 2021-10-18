@@ -6,11 +6,8 @@ const EnergyRequirement = () => {
   const [clear, setClear] = useState(false);
   const [checked, setChecked] = useState(false);
   const [inputCheckboxes, setInputCheckboxes] = useState('');
-  const [weight, setWeight] = useState('');
-  const [height, setHeight] = useState('');
-  const [age, setAge] = useState('');
-  const [sportTime, setSportTime] = useState('');
   const [needs, setNeeds] = useState(0);
+  const [targetValue, setTargetValue] = useState({});
 
   const activityCheckBoxes = activity.map(elem => ({
     name: elem.level,
@@ -27,9 +24,9 @@ const EnergyRequirement = () => {
 
   function handleCheck(e) {
     setChecked(!checked);
-    const name = e.target.className;
+    const name = e.target.name;
     const value = e.target.value;
-    const boxes = document.getElementsByClassName(e.target.className);
+    const boxes = document.getElementsByName(e.target.name);
     for (let i = 0; i < boxes.length; i++) {
       if (boxes[i].id !== e.target.id) {
         boxes[i].checked = false;
@@ -38,12 +35,18 @@ const EnergyRequirement = () => {
     setInputCheckboxes(values => ({ ...values, [name]: value }));
   };
 
-  function handleSubmit(e){
+  function handleChange(e) {
+    const value = e.target.value;
+    const name = e.target.name;
+    setTargetValue(values => ({ ...values, [name]: value}));
+  }
+
+  function handleSubmit(e) {
     e.preventDefault();
-    setNeeds(calculateEnergyRequirement(weight, height, age, sportTime, inputCheckboxes));
+    setNeeds(calculateEnergyRequirement(targetValue));
   };
 
-  function handleClear (e){
+  function handleClear(e) {
     e.preventDefault();
     console.log("cleared");
     setNeeds(0);
@@ -52,29 +55,26 @@ const EnergyRequirement = () => {
 
   return (
     <div className="energy">
-      <h2>Calculer vos dépenses energétiques</h2>
+      <h2>Calcul des dépenses energétiques</h2>
       <form className="calory-needs" onSubmit={handleSubmit}>
 
         <label htmlFor="height">Taille:</label>
         <input
           type="number"
-          id="height"
           name="height"
-          onChange={e => setHeight(e.target.value)}
+          onChange={handleChange}
         />
         <label htmlFor="weight">Poids:</label>
         <input
           type="number"
-          id="weight"
           name="weight"
-          onChange={e => setWeight(e.target.value)}
+          onChange={handleChange}
         />
         <label htmlFor="age">Age:</label>
         <input
           type="number"
-          id="age"
-          name="weight"
-          onChange={e => setAge(e.target.value)}
+          name="age"
+          onChange={handleChange}
         />
 
         <h4>Dépenses énergétique de base</h4>
@@ -82,13 +82,12 @@ const EnergyRequirement = () => {
           {activityCheckBoxes.map(elem =>
             <div key={elem.name.toString()}>
               <input
-                className="activityLevel"
                 type="checkbox"
-                name={elem.name}
+                name="activityLevel"
                 id={elem.name}
                 value={elem.value}
                 defaultChecked={checked}
-                onChange={handleCheck}
+                onChange={handleCheck && handleChange}
               />
               <label htmlFor={elem.name}>{elem.name}</label>
             </div>
@@ -100,13 +99,12 @@ const EnergyRequirement = () => {
           {sportCheckBoxes.map(elem =>
             <div key={elem.name.toString()}>
               <input
-                className="sportLevel"
                 type="checkbox"
-                name={elem.name}
+                name="sportLevel"
                 id={elem.name}
                 value={elem.value}
                 defaultChecked={checked}
-                onChange={handleCheck}
+                onChange={handleCheck && handleChange}
               />
               <label htmlFor={elem.name}>{elem.name}</label>
             </div>
@@ -116,10 +114,8 @@ const EnergyRequirement = () => {
           <label htmlFor="sportTime">Hours per week:</label>
           <input
             type="number"
-            id="sportTime"
             name="sportTime"
-            defaultValue="0"
-            onChange={e => setSportTime(e.target.value)}
+            onChange={handleChange}
           />
         </div>
 
@@ -128,13 +124,12 @@ const EnergyRequirement = () => {
           {genderCheckBoxes.map(elem =>
             <div key={elem.name.toString()}>
               <input
-                className="genderLevel"
                 type="checkbox"
-                name={elem.name}
+                name="genderLevel"
                 value={elem.value}
                 id={elem.name}
                 defaultChecked={checked}
-                onChange={handleCheck}
+                onChange={handleCheck && handleChange}
               />
               <label htmlFor={elem.name}>{elem.name}</label>
             </div>
