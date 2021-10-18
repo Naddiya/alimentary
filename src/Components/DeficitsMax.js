@@ -42,11 +42,8 @@ function DeficitsMax() {
         </div>
       </form>
 
-
     </div>
   );
-
-
 };
 
 export default DeficitsMax;
