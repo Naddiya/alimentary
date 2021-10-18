@@ -5,13 +5,11 @@ import { calculateEnergyRequirement } from './utils';
 const EnergyRequirement = () => {
   const [clear, setClear] = useState(false);
   const [checked, setChecked] = useState(false);
-
   const [inputCheckboxes, setInputCheckboxes] = useState('');
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
   const [age, setAge] = useState('');
   const [sportTime, setSportTime] = useState('');
-
   const [needs, setNeeds] = useState(0);
 
   const activityCheckBoxes = activity.map(elem => ({
@@ -27,10 +25,10 @@ const EnergyRequirement = () => {
     value: elem.ratio,
   }));
 
-  const handleCheck = (e) => {
+  function handleCheck(e) {
+    setChecked(!checked);
     const name = e.target.className;
     const value = e.target.value;
-    setChecked(!checked);
     const boxes = document.getElementsByClassName(e.target.className);
     for (let i = 0; i < boxes.length; i++) {
       if (boxes[i].id !== e.target.id) {
@@ -89,7 +87,7 @@ const EnergyRequirement = () => {
                 name={elem.name}
                 id={elem.name}
                 value={elem.value}
-                defaultChecked={elem.checked}
+                defaultChecked={checked}
                 onChange={handleCheck}
               />
               <label htmlFor={elem.name}>{elem.name}</label>
@@ -107,7 +105,7 @@ const EnergyRequirement = () => {
                 name={elem.name}
                 id={elem.name}
                 value={elem.value}
-                defaultChecked={elem.checked}
+                defaultChecked={checked}
                 onChange={handleCheck}
               />
               <label htmlFor={elem.name}>{elem.name}</label>
@@ -135,7 +133,7 @@ const EnergyRequirement = () => {
                 name={elem.name}
                 value={elem.value}
                 id={elem.name}
-                defaultChecked={elem.checked}
+                defaultChecked={checked}
                 onChange={handleCheck}
               />
               <label htmlFor={elem.name}>{elem.name}</label>
@@ -144,8 +142,7 @@ const EnergyRequirement = () => {
 
         </div>
 
-        <label className="calculation-result" htmlFor="calculation-result">Resultat : </label>
-        <input className="calculation-result" type="number" id="calculation-result" value={needs} readOnly />
+        <div className="calculation-result">Resultat : {needs}</div>
 
         <div className="call-to-action">
           <button className="button-calculate" type="submit" >Calculer</button>

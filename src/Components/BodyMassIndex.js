@@ -42,7 +42,7 @@ function BodyMassIndex() {
           value={weight}
           onChange={e => setWeight(e.target.value)}
         />
-        <div htmlFor="calculation-result">Resultat: {bmi}</div>
+        <div className="calculation-result">Resultat: {bmi}</div>
         <div className="call-to-action">
           <button id="button-calculate" className="button-calculate" onClick={handleClick}>Calcul du BMI</button>
           <button id="button-clear" className="button-clear" onClick={handleClear}>Initialiser</button>

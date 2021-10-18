@@ -33,8 +33,8 @@ function DeficitsMax() {
         <label htmlFor="calories">Consomation calorique actuelle:</label>
         <input type="number" id="calories" name="calories" onChange={handleChange} value={calories}/>
 
-        <div className="deficits-entries">Déficit Maximales des entrées caloriques : {entriesDeficit}</div>
-        <div className="deficits-activity">Déficit Maximales des dépense d'activité : {increaseActivity}</div>
+        <div className="deficits-entries calculation-result" >Déficit Maximales des entrées caloriques : {entriesDeficit}</div>
+        <div className="deficits-activity calculation-result">Déficit Maximales des dépense d'activité : {increaseActivity}</div>
 
         <div className="call-to-action">
           <button className="button-calculate" type="submit">Calculer</button>

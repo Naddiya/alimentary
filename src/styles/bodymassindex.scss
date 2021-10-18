@@ -22,9 +22,10 @@ form {
   gap: 5px;
 }
 
-#calculation-result {
-  margin-bottom: 0.1rem;
-  border: solid 2px steelblue;
+.calculation-result {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border: solid 2px rgb(65, 151, 221);
 }
 
 .button {
