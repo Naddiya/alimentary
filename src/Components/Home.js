@@ -1,7 +1,7 @@
 import React from "react";
 import BodyMassIndex from './BodyMassIndex';
 import EnergyNeeds from "./EnergyRequirement";
-import Strategy from "./Strategy";
+import DeficitsMax from "./DeficitsMax";
 import '../styles/bodymassindex.scss';
 
 function Home() {
@@ -10,7 +10,7 @@ function Home() {
       <h1> BALANCE </h1>
       <BodyMassIndex />
       <EnergyNeeds />
-      <Strategy />
+      <DeficitsMax />
     </div>
   );
 }
