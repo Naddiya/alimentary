@@ -18,7 +18,7 @@ describe("BodyMassIndex", () => {
     screen.getByRole('button', { name: /Initialiser/i });
     screen.getByLabelText(/Taille:/i);
     screen.getByLabelText(/Poids:/i);
-    screen.getByLabelText(/Resultat:/i);
+    screen.getByText(/Resultat:/i);
   });
 });
 
