@@ -8,7 +8,7 @@ export const activity = [
     ratio: 1.5
   },
   {
-    level: "moderate",
+    level: "medium",
     ratio: 1.6
   },
   {
@@ -30,7 +30,7 @@ export const gender = [
 
 export const sport = [
   {
-    level: "low",
+    level: "lowest",
     ratio: 0.02
   },
   {
@@ -38,7 +38,7 @@ export const sport = [
     ratio: 0.04
   },
   {
-    level: "intense",
+    level: "high",
     ratio: 0.06
   }
 ];
