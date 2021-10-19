@@ -1,16 +1,3 @@
-export function calcMaxEntriesDeficit(calories) {
-  return Math.abs(calories) * 0.15;
-};
-
-export function calcMaxIncreaseActivity(calories) {
-  return Math.abs(calories) * 0.20;
-};
-
-export function calculateBmi(weight, height) {
-  return (Math.abs(weight) / Math.pow(Math.abs(height), 2)).toFixed(2);
-}
-
-
 export function calculateEnergyRequirement(targetValues) {
   targetValues.sportTime !== undefined ? Math.abs(targetValues.sportTime) : targetValues.sportTime = 0;
   
@@ -28,4 +15,3 @@ export function calculateEnergyRequirement(targetValues) {
 
   return totalNeeds;
 }
-

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { activity, gender, sport } from '../../data/data';
-import { calculateEnergyRequirement } from './utils';
+import { activity, gender, sport } from '../../../data/data';
+import { calculateEnergyRequirement } from './calculations';
 
 const EnergyRequirement = () => {
   const [needs, setNeeds] = useState(0);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { calcMaxEntriesDeficit, calcMaxIncreaseActivity } from "./utils";
+import { calcMaxEntriesDeficit, calcMaxIncreaseActivity } from "./calculations";
 
 function DeficitsMax() {
 
@@ -31,6 +31,7 @@ function DeficitsMax() {
     const value = Math.abs(e.target.value);
     const previousActivityRange = Math.abs(activityRange);
     const previousEntriesRange = Math.abs(entriesRange);
+    const isValid = (activityRange + entriesRange) <= combinedMaxDept;
 
     let diff = 0;
     if (e.target.name === 'activityCalories') {
@@ -38,27 +39,21 @@ function DeficitsMax() {
     } else if (e.target.name === 'entriesCalories') {
       diff = previousEntriesRange - value;
     }
-    const isValid = (activityRange + entriesRange) <= combinedMaxDept;
 
     if (name === 'activityCalories' && isValid) {
-      if (value > (Math.abs(maxActivityDeficit) - previousActivityRange) ) {
+      if (value > (Math.abs(maxActivityDeficit) - previousActivityRange)) {
         setActivityRange(value);
         setEntriesRange(previousEntriesRange + parseInt(diff));
-      } else {
-        return
-      }
+      } else { return; }
     }
     if (name === 'entriesCalories' && isValid) {
       if (value > (Math.abs(maxEntriesDeficit) - previousEntriesRange)) {
         setEntriesRange(value);
         setActivityRange(previousActivityRange + parseInt(diff));
-      } else {
-        return
-      }
+      } else { return; }
     }
   }
 
-  console.log(activityRange, entriesRange);
 
   function handleClear() {
     setMaxEntriesDeficit(0);

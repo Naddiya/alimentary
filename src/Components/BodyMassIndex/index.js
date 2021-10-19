@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { calculateBmi } from './utils';
+import { calculateBmi } from './calculations';
 
 function BodyMassIndex() {
 
