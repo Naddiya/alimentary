@@ -49,7 +49,7 @@ function DeficitsMax() {
       }
     }
     if (name === 'entriesCalories' && isValid) {
-      if (value > (Math.abs(maxEntriesDeficit) - previousActivityRange)) {
+      if (value > (Math.abs(maxEntriesDeficit) - previousEntriesRange)) {
         setEntriesRange(value);
         setActivityRange(previousActivityRange + parseInt(diff));
       } else {
