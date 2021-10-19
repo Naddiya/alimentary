@@ -26,7 +26,7 @@ const EnergyRequirement = () => {
     setChecked(!checked);
     const name = e.target.name;
     const value = e.target.value;
-    const boxes = document.getElementsByName(e.target.name);
+    const boxes = document.getElementsByClassName(e.target.className);
     for (let i = 0; i < boxes.length; i++) {
       if (boxes[i].id !== e.target.id) {
         boxes[i].checked = false;
@@ -34,11 +34,13 @@ const EnergyRequirement = () => {
     }
     setInputCheckboxes(values => ({ ...values, [name]: value }));
   };
+  console.log(inputCheckboxes);
 
   function handleChange(e) {
+    handleCheck(e);
     const value = e.target.value;
     const name = e.target.name;
-    setTargetValue(values => ({ ...values, [name]: value}));
+    setTargetValue(values => ({ ...values, [name]: value }));
   }
 
   function handleSubmit(e) {
@@ -82,12 +84,13 @@ const EnergyRequirement = () => {
           {activityCheckBoxes.map(elem =>
             <div key={elem.name.toString()}>
               <input
+                className="activityLevel"
                 type="checkbox"
                 name="activityLevel"
                 id={elem.name}
                 value={elem.value}
                 defaultChecked={checked}
-                onChange={handleCheck && handleChange}
+                onChange={handleChange}
               />
               <label htmlFor={elem.name}>{elem.name}</label>
             </div>
@@ -99,12 +102,13 @@ const EnergyRequirement = () => {
           {sportCheckBoxes.map(elem =>
             <div key={elem.name.toString()}>
               <input
+                className="sportLevel"
                 type="checkbox"
                 name="sportLevel"
                 id={elem.name}
                 value={elem.value}
                 defaultChecked={checked}
-                onChange={handleCheck && handleChange}
+                onChange={handleChange}
               />
               <label htmlFor={elem.name}>{elem.name}</label>
             </div>
@@ -124,12 +128,13 @@ const EnergyRequirement = () => {
           {genderCheckBoxes.map(elem =>
             <div key={elem.name.toString()}>
               <input
+                className="genderLevel"
                 type="checkbox"
                 name="genderLevel"
                 value={elem.value}
                 id={elem.name}
                 defaultChecked={checked}
-                onChange={handleCheck && handleChange}
+                onChange={handleChange}
               />
               <label htmlFor={elem.name}>{elem.name}</label>
             </div>
