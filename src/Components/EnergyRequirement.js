@@ -3,9 +3,9 @@ import { activity, gender, sport } from '../../data/data';
 import { calculateEnergyRequirement } from './utils';
 
 const EnergyRequirement = () => {
+  const [checked, setChecked] = useState(inputCheckboxes);
+  const [inputCheckboxes, setInputCheckboxes] = useState();
   const [clear, setClear] = useState(false);
-  const [checked, setChecked] = useState(false);
-  const [inputCheckboxes, setInputCheckboxes] = useState('');
   const [needs, setNeeds] = useState(0);
   const [targetValue, setTargetValue] = useState({});
 
@@ -23,18 +23,17 @@ const EnergyRequirement = () => {
   }));
 
   function handleCheck(e) {
-    setChecked(!checked);
     const name = e.target.name;
     const value = e.target.value;
+    const isChecked = e.target.checked;
     const boxes = document.getElementsByClassName(e.target.className);
     for (let i = 0; i < boxes.length; i++) {
       if (boxes[i].id !== e.target.id) {
         boxes[i].checked = false;
       }
     }
-    setInputCheckboxes(values => ({ ...values, [name]: value }));
+    setInputCheckboxes(values => ({ ...values, [name]: value , isChecked}));
   };
-  console.log(inputCheckboxes);
 
   function handleChange(e) {
     handleCheck(e);
@@ -50,15 +49,16 @@ const EnergyRequirement = () => {
 
   function handleClear(e) {
     e.preventDefault();
-    console.log("cleared");
-    setNeeds(0);
-    setClear(true);
+    document.getElementById('calory-needs').reset()
+    setNeeds(0)
+    setClear(!clear);
+    console.log("energy requirement form cleared");
   };
 
   return (
     <div className="energy">
       <h2>Calcul des dépenses energétiques</h2>
-      <form className="calory-needs" onSubmit={handleSubmit}>
+      <form id="calory-needs" onSubmit={handleSubmit}>
 
         <label htmlFor="height">Taille:</label>
         <input
@@ -114,6 +114,7 @@ const EnergyRequirement = () => {
             </div>
           )}
         </div>
+
         <div className="sport-time">
           <label htmlFor="sportTime">Hours per week:</label>
           <input
@@ -139,7 +140,6 @@ const EnergyRequirement = () => {
               <label htmlFor={elem.name}>{elem.name}</label>
             </div>
           )}
-
         </div>
 
         <div className="calculation-result">Resultat : {needs}</div>
@@ -149,10 +149,8 @@ const EnergyRequirement = () => {
           <button className="button-clear" onClick={handleClear}>Initialiser</button>
         </div>
 
-
       </form>
     </div>
-
   );
 };
 
