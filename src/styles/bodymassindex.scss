@@ -1,23 +1,33 @@
-form {
-  width: 50%;
-  display:flex;
-  flex-direction: column;
-  align-content: space-between;
+#energy {
+  margin: auto;
+}
+h2 {
+  text-align: center;
 }
 
-.activity, .sport, .gender {
-  display:flex;
+form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  margin: 2rem auto;
+}
+
+.activity,
+.sport,
+.gender {
+  display: flex;
   justify-content: space-evenly;
   gap: 8px;
 }
 
-.gender{
+.gender {
   margin-bottom: 1rem;
 }
 
 .call-to-action {
   margin-top: 1rem;
-  display:flex;
+  display: flex;
   flex-direction: column;
   gap: 5px;
 }
@@ -30,16 +40,16 @@ form {
 
 .button {
   gap: 10px;
-  &-calculate{
+  &-calculate {
     color: black;
-    border:grey solid 1px;
-    background-color: rgb(120, 172, 43);
+    border: grey solid 1px;
+    background-color: rgb(194, 240, 185);
     border-radius: 10px;
   }
-  &-clear{
-    color: white;
-    border:grey solid 1px;
-    background-color: rgb(219, 65, 96);
+  &-clear {
+    color: rgb(0, 0, 0);
+    border: grey solid 1px;
+    background-color: rgb(241, 135, 157);
     border-radius: 10px;
   }
 }

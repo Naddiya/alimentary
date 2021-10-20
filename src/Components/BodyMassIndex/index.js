@@ -23,8 +23,8 @@ function BodyMassIndex() {
   };
 
   return (
-    <div className="bmi">
-      <h2>Calculer l'indice de masse corporelle</h2>
+    <div id="bmi">
+      <h2 className="bmi">Calculer l'indice de masse corporelle</h2>
 
       <form className="bmi-form" onSubmit={handleSubmit}>
         <label htmlFor="height">Taille:</label>

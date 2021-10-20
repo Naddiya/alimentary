@@ -49,7 +49,7 @@ const EnergyRequirement = () => {
   };
 
   return (
-    <div className="energy">
+    <div id="energy">
       <h2>Calcul des dépenses energétiques</h2>
       <form id="calory-needs" onSubmit={handleSubmit}>
         <label htmlFor="height">Taille:</label>

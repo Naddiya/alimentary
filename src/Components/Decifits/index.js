@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { calculateMaxEntriesDeficit, calculateMaxActivityDeficit, getDifference } from "./calculations";
 
-function DeficitsMax() {
+function Deficits() {
 
   const [clear, setClear] = useState(false);
   const [calories, setCalories] = useState('');
@@ -104,4 +104,4 @@ function DeficitsMax() {
   );
 };
 
-export default DeficitsMax;
+export default Deficits;
