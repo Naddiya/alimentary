@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { calcMaxEntriesDeficit, calcMaxIncreaseActivity } from "./calculations";
+import { calculateMaxEntriesDeficit, calculateMaxActivityDeficit, getDifference } from "./calculations";
 
 function DeficitsMax() {
 
@@ -7,8 +7,7 @@ function DeficitsMax() {
   const [calories, setCalories] = useState('');
   const [maxEntriesDeficit, setMaxEntriesDeficit] = useState(0);
   const [maxActivityDeficit, setMaxActivityDeficit] = useState(0);
-
-  const [combinedMaxDept, setCombinedMaxDept] = useState(0);
+  const [combinedMaxDeficit, setCombinedMaxDeficit] = useState(0);
   const [entriesRange, setEntriesRange] = useState(0);
   const [activityRange, setActivityRange] = useState(0);
 
@@ -18,9 +17,9 @@ function DeficitsMax() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setMaxEntriesDeficit(calcMaxEntriesDeficit(calories));
-    setMaxActivityDeficit(calcMaxIncreaseActivity(calories));
-    setCombinedMaxDept(calories * 0.25);
+    setMaxEntriesDeficit(calculateMaxEntriesDeficit(calories));
+    setMaxActivityDeficit(calculateMaxActivityDeficit(calories));
+    setCombinedMaxDeficit(calories * 0.25);
     setActivityRange(calories * 0.25 * 0.5);
     setEntriesRange(calories * 0.25 * 0.5);
   }
@@ -31,29 +30,22 @@ function DeficitsMax() {
     const value = Math.abs(e.target.value);
     const previousActivityRange = Math.abs(activityRange);
     const previousEntriesRange = Math.abs(entriesRange);
-    const isValid = (activityRange + entriesRange) <= combinedMaxDept;
-
-    let diff = 0;
-    if (e.target.name === 'activityCalories') {
-      diff = previousActivityRange - value;
-    } else if (e.target.name === 'entriesCalories') {
-      diff = previousEntriesRange - value;
-    }
+    const difference = getDifference(name, value, previousActivityRange, previousEntriesRange);
+    const isValid = (activityRange + entriesRange) <= combinedMaxDeficit;
 
     if (name === 'activityCalories' && isValid) {
-      if (value > (Math.abs(maxActivityDeficit) - previousActivityRange)) {
+      if ((Math.abs(maxActivityDeficit) - previousActivityRange) < value) {
         setActivityRange(value);
-        setEntriesRange(previousEntriesRange + parseInt(diff));
+        setEntriesRange(previousEntriesRange + difference);
       } else { return; }
     }
     if (name === 'entriesCalories' && isValid) {
-      if (value > (Math.abs(maxEntriesDeficit) - previousEntriesRange)) {
+      if ((Math.abs(maxEntriesDeficit) - previousEntriesRange) < value) {
         setEntriesRange(value);
-        setActivityRange(previousActivityRange + parseInt(diff));
+        setActivityRange(previousActivityRange + difference);
       } else { return; }
     }
   }
-
 
   function handleClear() {
     setMaxEntriesDeficit(0);
@@ -83,7 +75,7 @@ function DeficitsMax() {
 
       <form >
 
-        <p>Le déficit maximum correspond à 25% de la consommation courante, soit = {combinedMaxDept} calories</p>
+        <p>Le déficit maximum correspond à 25% de la consommation courante, soit = {combinedMaxDeficit} calories</p>
         <label htmlFor="entries-calories">Entries : {entriesRange}/{maxEntriesDeficit}</label>
         <input
           type="range"
