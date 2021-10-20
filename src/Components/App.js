@@ -1,13 +1,15 @@
 import React from 'react';
-import Home from './Home';
+import Page from './Layout';
+
+
 import "../styles/normalize.scss";
-import "../styles/style.scss"
+import "../styles/style.scss";
 
 
 function App() {
   return (
-    <div className="App">
-      <Home />
+    <div id="app"> 
+      <Page />
     </div>
   );
 }
