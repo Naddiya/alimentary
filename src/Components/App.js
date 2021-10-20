@@ -1,5 +1,5 @@
 import React from 'react';
-import Page from './Layout';
+import Page from './Layout/Page';
 
 
 import "../styles/normalize.scss";

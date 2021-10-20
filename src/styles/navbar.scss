@@ -1,0 +1,29 @@
+#navbar {
+  background-color: rgb(228, 247, 61);
+}
+.navbar {
+  &-links {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style: none;
+    border-radius: 10%;
+    &-pages {
+      border: solid lightgray 0.5px;
+      padding: 0.4rem 0.8rem;
+      align-self: center;
+    }
+    &-pages:hover {
+      background-color: rgb(240, 252, 135);
+    }
+    &-auth {
+      display: flex;
+      flex-direction: row;
+      padding: 0.5rem;
+    }
+    &-auth:hover {
+      background-color: rgb(240, 252, 135);
+    }
+  }
+}
