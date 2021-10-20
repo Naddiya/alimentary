@@ -1,4 +1,9 @@
 export function calculateBmi(weight, height) {
-  const currentHeight = Math.abs(height / 100);
-  return (Math.abs(weight) / Math.pow(currentHeight, 2)).toFixed(2);
+  let result;
+  if (!!weight && !!height) {
+    result = (Math.abs(weight) / Math.pow(Math.abs(height / 100), 2)).toFixed(2);
+  } else {
+    result = "Error, make sure you filled all fileds";
+  }
+  return result;
 }

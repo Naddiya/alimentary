@@ -8,9 +8,10 @@ function BodyMassIndex() {
   const [weight, setWeight] = useState('');
   const [clear, setClear] = useState(false);
 
-  function handleClick(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-    setBmi(calculateBmi(weight, height));
+    const result = calculateBmi(weight, height);
+    setBmi(result);
   };
 
   function handleClear(e) {
@@ -25,7 +26,7 @@ function BodyMassIndex() {
     <div className="bmi">
       <h2>Calculer l'indice de masse corporelle</h2>
 
-      <form className="bmi-form">
+      <form className="bmi-form" onSubmit={handleSubmit}>
         <label htmlFor="height">Taille:</label>
         <input
           type="number"
@@ -44,7 +45,7 @@ function BodyMassIndex() {
         />
         <div className="calculation-result">Resultat: {bmi}</div>
         <div className="call-to-action">
-          <button id="button-calculate" className="button-calculate" onClick={handleClick}>Calcul du BMI</button>
+          <button id="button-calculate" className="button-calculate" type="submit">Calcul du BMI</button>
           <button id="button-clear" className="button-clear" onClick={handleClear}>Initialiser</button>
         </div>
       </form>
