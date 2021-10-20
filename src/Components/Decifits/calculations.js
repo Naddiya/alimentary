@@ -10,12 +10,13 @@ export function calculateMaxCombinedDeficit(calories) {
   return Math.abs(calories) * 0.25;
 }
 
-export function getDifference(name, value, previousActivityRange, previousEntriesRange){
+export function getDifference(name, value, previousActivityRange, previousEntriesRange) {
   let difference = 0;
   if (name === 'activityCalories') {
     difference = previousActivityRange - value;
-  } else if (name === 'entriesCalories') {
+  }
+  if (name === 'entriesCalories') {
     difference = previousEntriesRange - value;
   }
-  return parseInt(difference)
+  return parseInt(difference);
 }
