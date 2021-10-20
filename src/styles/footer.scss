@@ -1,13 +1,12 @@
 #footer {
   background-color: rgb(255, 228, 110);
   padding: 1rem;
-  bottom:0;
 }
 .footer {
   &-links {
     list-style: none;
   }
   &-bottom {
-    text-align:center;
+    text-align: center;
   }
 }

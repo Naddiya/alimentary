@@ -1,6 +1,6 @@
 #navbar {
   background-color: rgb(161, 231, 147);
-  top: 0;
+  margin-top: -1rem;
 }
 .navbar {
   &-links {
@@ -16,7 +16,7 @@
       color: black;
     }
     &-pages {
-      border: solid lightgray 0.5px;
+      box-shadow: 0 8px 6px -6px rgb(71, 71, 71);
       padding: 0.4rem 0.8rem;
       align-self: center;
     }
