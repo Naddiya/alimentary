@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../styles/navbar.scss';
 import DropDownToolsMenu from './DropDownToolsMenu';
-function Navbar() {
 
+function Navbar() {
 
   return (
     <div id='navbar'>
@@ -13,6 +13,9 @@ function Navbar() {
         </Link>
         <Link className="navbar-links-pages" to="/about">
           About
+        </Link>
+        <Link className="navbar-links-pages" to="/dashboard">
+          DashBoard
         </Link>
         <DropDownToolsMenu />
         <div className="navbar-links">

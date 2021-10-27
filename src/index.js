@@ -7,6 +7,7 @@ import Footer from './Components/Layout/Footer';
 import BodyMassIndex from './Components/BodyMassIndex';
 import EnergyRequirement from './Components/EnergyRequirement';
 import Deficits from './Components/Decifits';
+import DashBoard from './Components/DashBoard.js';
 
 
 const Routing = () => {
@@ -18,6 +19,7 @@ const Routing = () => {
         <Route path='/bmi' component={BodyMassIndex} />
         <Route path='/deficits' component={Deficits} />
         <Route path='/energy' component={EnergyRequirement} />
+        <Route path='/dashboard' component={DashBoard} />
       </Switch>
       <Footer />
     </Router>
