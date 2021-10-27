@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './Components/App'
+import Home from './Components/Home'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from './Components/Layout/NavBar';
 import Footer from './Components/Layout/Footer';
@@ -15,7 +15,7 @@ const Routing = () => {
     <Router>
       <Navbar />
       <Switch>
-        <Route exact path='/' component={App} />
+        <Route exact path='/' component={Home} />
         <Route path='/bmi' component={BodyMassIndex} />
         <Route path='/deficits' component={Deficits} />
         <Route path='/energy' component={EnergyRequirement} />
