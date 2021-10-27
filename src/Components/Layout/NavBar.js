@@ -6,31 +6,21 @@ function Navbar() {
 
 
   return (
-    <nav id='navbar'>
-      <ul className="navbar-links">
-        <li className="navbar-links-pages">
-          <Link to="/">
-            Home
-          </Link>
-        </li>
-        <li className="navbar-links-pages">
-          <Link to="/about">
-            About
-          </Link>
-        </li>
-        <li className="navbar-links-pages">
-          <DropDownToolsMenu />
-        </li>
+    <div id='navbar'>
+      <nav className="navbar-links">
+        <Link className="navbar-links-pages" to="/">
+          Home
+        </Link>
+        <Link className="navbar-links-pages" to="/about">
+          About
+        </Link>
+        <DropDownToolsMenu />
         <div className="navbar-links">
-          <li>
-            <Link className="navbar-links-auth" to="#">Register</Link>
-          </li>
-          <li>
-            <Link className="navbar-links-auth" to="#">Signin</Link>
-          </li>
+          <Link className="navbar-links-auth" to="#">Register</Link>
+          <Link className="navbar-links-auth" to="#">Signin</Link>
         </div>
-      </ul>
-    </nav>
+      </nav>
+    </div>
 
   );
 }

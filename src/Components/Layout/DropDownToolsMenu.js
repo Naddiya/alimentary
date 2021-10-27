@@ -8,32 +8,24 @@ function DropDownToolsMenu() {
   const handleClick = (e) => setToggle(!toggle);
 
   return (
-    <>
-      <nav
-        onClick={handleClick}
-      >
+    <div className="navbar-links-pages"  onClick={handleClick}>
+      <Link to="#">
         Tools
-      </nav>
+      </Link>
       {toggle && (
-        <ul className="toggle-menu" onClick={handleClick} >
-          <li>
+        <div className="toggle-menu" onClick={handleClick} >
             <Link className="navbar-links-pages toggle-menu-tool" to="/bmi">
               Indice de masse corporelle
             </Link>
-          </li>
-          <li>
             <Link className="navbar-links-pages toggle-menu-tool" to="/energy">
               Besoins energétiques
             </Link>
-          </li>
-          <li>
             <Link className="navbar-links-pages toggle-menu-tool" to="/deficits">
               Déficits maximaux
             </Link>
-          </li>
-        </ul >
+        </div >
       )}
-    </>
+    </div>
   );
 };
 

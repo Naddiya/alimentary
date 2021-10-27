@@ -16,7 +16,7 @@
       color: black;
     }
     &-pages {
-      box-shadow: 0 8px 6px -6px rgb(71, 71, 71);
+      box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
       padding: 0.4rem 0.8rem;
       align-self: center;
     }
@@ -37,13 +37,13 @@
 .toggle-menu {
   position: fixed;
   background-color: rgb(255, 255, 207);
-  list-style: georgian ;
+  list-style: georgian;
   margin: 0.9rem -0.6rem;
   opacity: 0.9;
   &-tool {
     display: flex;
     flex-direction: row;
     padding: 0.5rem;
-    left:0
+    left: 0;
   }
 }
