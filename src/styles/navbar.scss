@@ -1,49 +1,18 @@
-#navbar {
+.navbar {
   background-color: rgb(161, 231, 147);
-  margin-top: -1rem;
 }
 .navbar {
+  padding: 1rem;
   &-links {
-    text-decoration: none;
-    padding: 1rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    list-style: none;
-    border-radius: 10%;
     & a {
       text-decoration: none;
-      color: black;
+      color: rgb(43, 43, 43);
     }
     &-pages {
       box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-      padding: 0.4rem 0.8rem;
       align-self: center;
-    }
-    &-pages:hover {
-      background-color: rgb(194, 240, 185);
-    }
-    &-auth {
-      display: flex;
-      flex-direction: row;
-      padding: 0.5rem;
-    }
-    &-auth:hover {
-      background-color: rgb(240, 252, 135);
     }
   }
 }
 
-.toggle-menu {
-  position: fixed;
-  background-color: rgb(255, 255, 207);
-  list-style: georgian;
-  margin: 0.9rem -0.6rem;
-  opacity: 0.9;
-  &-tool {
-    display: flex;
-    flex-direction: row;
-    padding: 0.5rem;
-    left: 0;
-  }
-}
+

@@ -1,29 +1,35 @@
-import React from 'react';
+import { Box, MenuList, MenuItem, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import React from 'react';
 import '../../styles/navbar.scss';
-import DropDownToolsMenu from './DropDownToolsMenu';
+import ToggleToolsMenu from './ToggleToolsMenu.js';
 
 function Navbar() {
 
   return (
-    <div id='navbar'>
-      <nav className="navbar-links">
-        <Link className="navbar-links-pages" to="/">
+    <Box className='navbar'>
+      <MenuList className="navbar-links" sx={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+        <MenuItem className="navbar-links-pages" component={Link} to='/'>
           Home
-        </Link>
-        <Link className="navbar-links-pages" to="/about">
+        </MenuItem>
+        <MenuItem className="navbar-links-pages" component={Link} to='/about'>
           About
-        </Link>
-        <Link className="navbar-links-pages" to="/dashboard">
+        </MenuItem>
+        <MenuItem className="navbar-links-pages" component={Link} to='/dashboard'>
           DashBoard
-        </Link>
-        <DropDownToolsMenu />
-        <div className="navbar-links">
-          <Link className="navbar-links-auth" to="#">Register</Link>
-          <Link className="navbar-links-auth" to="#">Signin</Link>
-        </div>
-      </nav>
-    </div>
+        </MenuItem>
+        <MenuItem className="navbar-links-pages" component={ToggleToolsMenu}>
+        </MenuItem>
+        <Box className="navbar-links" sx={{ display: 'flex' }}>
+          <MenuItem className="navbar-links-auth" component={Link} to='#'>
+            Register
+          </MenuItem>
+          <MenuItem className="navbar-links-auth" component={Link} to='#' >
+            Signin
+          </MenuItem>
+        </Box>
+      </MenuList>
+    </Box>
 
   );
 }
