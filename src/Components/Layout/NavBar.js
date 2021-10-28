@@ -18,8 +18,7 @@ function Navbar() {
         <MenuItem className="navbar-links-pages" component={Link} to='/dashboard'>
           DashBoard
         </MenuItem>
-        <MenuItem className="navbar-links-pages" component={ToggleToolsMenu}>
-        </MenuItem>
+        <ToggleToolsMenu />
         <Box className="navbar-links" sx={{ display: 'flex' }}>
           <MenuItem className="navbar-links-auth" component={Link} to='#'>
             Register
