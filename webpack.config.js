@@ -40,5 +40,8 @@ module.exports = {
       inject: "head"
     }),
   ],
+  devServer: {
+    historyApiFallback: true,
+  },
 };
 

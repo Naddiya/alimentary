@@ -1,16 +1,18 @@
 #energy {
   margin: auto;
 }
+
 h2 {
   text-align: center;
 }
 
-form {
+.bmi {
   width: 50%;
   display: flex;
   flex-direction: column;
-  align-content: space-between;
   margin: 2rem auto;
+  padding: 2rem;
+  gap: 10px;
 }
 
 .activity,
@@ -29,27 +31,15 @@ form {
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 8px;
 }
 
 .calculation-result {
   margin-top: 1rem;
-  padding: 0.5rem;
-  border: solid 2px rgb(65, 151, 221);
+  padding: 1rem;
+  font-weight: 700;
 }
 
 .button {
   gap: 10px;
-  &-calculate {
-    color: black;
-    border: grey solid 1px;
-    background-color: rgb(194, 240, 185);
-    border-radius: 10px;
-  }
-  &-clear {
-    color: rgb(0, 0, 0);
-    border: grey solid 1px;
-    background-color: rgb(241, 135, 157);
-    border-radius: 10px;
-  }
 }

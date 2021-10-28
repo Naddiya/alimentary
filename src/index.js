@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Home from './Components/Home';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route , Link} from "react-router-dom";
 import Navbar from './Components/Layout/NavBar';
 import Footer from './Components/Layout/Footer';
 import BodyMassIndex from './Components/BodyMassIndex';

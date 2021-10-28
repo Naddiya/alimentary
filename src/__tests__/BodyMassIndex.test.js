@@ -17,8 +17,8 @@ describe("BodyMassIndex", () => {
     screen.getByRole('heading', { name: /Calculer l'indice de masse corporelle/i });
     screen.getByRole('button', { name: /Calcul du BMI/i });
     screen.getByRole('button', { name: /Initialiser/i });
-    screen.getByLabelText(/Taille:/i);
-    screen.getByLabelText(/Poids:/i);
+    screen.getByLabelText(/Taille/i);
+    screen.getByLabelText(/Poids/i);
     screen.getByText(/Resultat:/i);
   });
 });

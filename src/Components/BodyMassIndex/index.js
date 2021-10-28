@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { calculateBmi } from './calculations';
+import { Box, Button, FormControl, InputLabel, Card, Paper, OutlinedInput, InputAdornment, FormHelperText } from '@mui/material';
 
 function BodyMassIndex() {
 
@@ -23,34 +24,48 @@ function BodyMassIndex() {
   };
 
   return (
-    <div id="bmi">
+    <Box>
       <h2 className="bmi">Calculer l'indice de masse corporelle</h2>
+      <Card className="bmi" component="form" onSubmit={handleSubmit}>
+        <FormControl variant="outlined">
+          <InputLabel>Taille</InputLabel>
+          <OutlinedInput
+            type="number"
+            id="height"
+            name="height"
+            value={height}
+            label="Taille"
+            onChange={e => setHeight(e.target.value)}
+            endAdornment={<InputAdornment position="end">cm</InputAdornment>}
+            inputProps={{
+              'aria-label': 'Taille',
+            }}
+          />
+        </FormControl>
+        <FormControl>
+          <InputLabel aria-labelledby="Poids">Poids</InputLabel>
+          <OutlinedInput
+            type="number"
+            id="weight"
+            name="weight"
+            value={weight}
+            label="Poids"
+            onChange={e => setWeight(e.target.value)}
+            endAdornment={<InputAdornment position="end">kg</InputAdornment>}
+            inputProps={{
+              'aria-label': 'Poids',
+            }}
+          />
+        </FormControl>
+        <Paper className="calculation-result">Resultat: {bmi}</Paper>
+        <Box className="call-to-action">
+          <Button id="button-calculate" variant="outlined" color="success" type="submit">Calcul du BMI</Button>
+          <Button id="button-clear" variant="outlined" color="warning" className="button-clear" onClick={handleClear}>Initialiser</Button>
+        </Box>
+      </Card>
 
-      <form className="bmi-form" onSubmit={handleSubmit}>
-        <label htmlFor="height">Taille:</label>
-        <input
-          type="number"
-          id="height"
-          name="height"
-          value={height}
-          onChange={e => setHeight(e.target.value)}
-        />
-        <label htmlFor="weight">Poids:</label>
-        <input
-          type="number"
-          id="weight"
-          name="weight"
-          value={weight}
-          onChange={e => setWeight(e.target.value)}
-        />
-        <div className="calculation-result">Resultat: {bmi}</div>
-        <div className="call-to-action">
-          <button id="button-calculate" className="button-calculate" type="submit">Calcul du BMI</button>
-          <button id="button-clear" className="button-clear" onClick={handleClear}>Initialiser</button>
-        </div>
-      </form>
+    </Box>
 
-    </div>
 
   );
 };
