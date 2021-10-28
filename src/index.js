@@ -11,7 +11,7 @@ import DashBoard from './Components/DashBoard.js';
 import CssBaseline from '@mui/material/CssBaseline';
 
 
-const Routing = () => {
+const App = () => {
   return (
     <Router>
       <Navbar />
@@ -30,7 +30,7 @@ const Routing = () => {
 ReactDOM.render(
   <React.StrictMode>
     <CssBaseline />
-    <Routing />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

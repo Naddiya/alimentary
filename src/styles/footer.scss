@@ -1,9 +1,11 @@
-#footer {
-  background-color: rgb(255, 228, 110);
-  padding: 1rem;
-}
 .footer {
-  &-links {
+  background-color: rgb(255, 228, 110);
+  position:fixed;
+  bottom: 0;
+  left:0;
+  right:0;
+  padding: 1rem;
+  width:max-content &-links {
     list-style: none;
   }
   &-bottom {

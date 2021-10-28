@@ -25,7 +25,7 @@ function BodyMassIndex() {
 
   return (
     <Box>
-      <h2 className="bmi">Calculer l'indice de masse corporelle</h2>
+      <h2>Calculer l'indice de masse corporelle</h2>
       <Card className="bmi" component="form" onSubmit={handleSubmit}>
         <FormControl variant="outlined">
           <InputLabel>Taille</InputLabel>
@@ -63,10 +63,7 @@ function BodyMassIndex() {
           <Button id="button-clear" variant="outlined" color="warning" className="button-clear" onClick={handleClear}>Initialiser</Button>
         </Box>
       </Card>
-
     </Box>
-
-
   );
 };
 
