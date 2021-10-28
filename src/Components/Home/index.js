@@ -1,6 +1,7 @@
 import React from "react";
 import '../../styles/bodymassindex.scss';
 
+
 function Home() {
 
   return (
