@@ -11,17 +11,17 @@ const data = {
   labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13'],
   datasets: [
     {
-      label: "amaigrissmeent maximum",
+      label: "maximum",
       data: [...loss],
       backgroundColor: 'red',
     },
     {
-      label: "amaigrissement effectif",
+      label: "effectif",
       data: ['0.3', '0.4', '0.8', '0.8', '0.9', '1.1', '.7', '0.8', '0.9', '0.8'],
       backgroundColor: 'green',
     },
     {
-      label: "amaigrissement minimum",
+      label: "minimum",
       data: ['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '0.8'],
       backgroundColor: 'blue',
     }

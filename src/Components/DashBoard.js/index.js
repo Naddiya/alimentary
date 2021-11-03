@@ -1,12 +1,12 @@
 import React from 'react';
-import WeigthForm from './WeightForm';
+import LossForm from './LossForm';
 import WeightLossGraph from './WeightLossGraph';
 
 function DashBoard() {
 
   return (
     <div className="dashboard">
-      <WeigthForm />
+      <LossForm />
       <WeightLossGraph />
     </div>
   );
