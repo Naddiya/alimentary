@@ -158,7 +158,6 @@ const EnergyRequirement = () => {
                   labelPlacement="start"
                   label={elem.name}
                   value={elem.value}
-                  defaultValue='female'
                 />
               )}
             </RadioGroup>
