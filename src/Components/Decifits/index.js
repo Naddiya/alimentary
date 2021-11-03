@@ -14,6 +14,7 @@ import {
   FormControlLabel,
   TextField,
   OutlinedInput,
+  FromGroup
 
 } from '@mui/material';
 
@@ -80,14 +81,13 @@ const Deficits = () => {
         sx={{ padding: '2rem', margin: 'auto', width: '50%' }}
       >
         <FormGroup sx={{ gap: '10px' }} >
-          <FormControl >
+          <FormControl onChange={handleChange}>
             <InputLabel>Consomation calorique actuelle</InputLabel>
             <OutlinedInput
               type="number"
               name="calories"
               label="Consomation calorique actuelle"
               value={calories}
-              onChange={handleChange}
             />
           </FormControl>
         </FormGroup>
@@ -97,39 +97,43 @@ const Deficits = () => {
           <Button className="button-clear" onClick={handleClear} variant="outlined" color="warning" >Initialiser</Button>
         </Box>
 
-        <ResultTable entries={maxEntriesDeficit} activity={maxActivityDeficit}/>
+        <ResultTable entries={maxEntriesDeficit} activity={maxActivityDeficit} />
       </Card>
 
 
 
       <h2>Combiner les déficits</h2>
       <Card className="deficits-range" component="form" sx={{ padding: '2rem', margin: 'auto', width: '50%' }}>
-        <FormLabel>Le déficit maximum correspond à 25% de la consommation courante, soit = {combinedMaxDeficit} calories</FormLabel>
+        <FormGroup>
 
-        <InputLabel >Entries : {entriesRange}/{maxEntriesDeficit}</InputLabel>
-        <FormControl>
-          <Slider
-            name="entriesCalories"
-            valueLabelDisplay="auto"
-            min={0}
-            max={maxEntriesDeficit}
-            step={1}
-            value={entriesRange}
-            onChange={handleRange}
-          />
-        </FormControl>
+          <FormLabel>Le déficit maximum correspond à 25% de la consommation courante, soit = {combinedMaxDeficit} calories</FormLabel>
 
-        <InputLabel>Activity : {activityRange}/ {maxActivityDeficit}</InputLabel>
-        <FormControl onChange={handleRange}>
-          <Slider
-            name="activityCalories"
-            valueLabelDisplay="auto"
-            min={0}
-            max={maxActivityDeficit}
-            step={1}
-            value={activityRange}
-          />
-        </FormControl>
+          <InputLabel >Entries {entriesRange}/{maxEntriesDeficit}</InputLabel>
+          <FormControl>
+            <Slider
+              name="entriesCalories"
+              valueLabelDisplay="auto"
+              min={0}
+              max={maxEntriesDeficit}
+              step={1}
+              value={entriesRange}
+              onChange={handleRange}
+            />
+          </FormControl>
+
+          <InputLabel>Activity {activityRange}/ {maxActivityDeficit}</InputLabel>
+          <FormControl >
+            <Slider
+              aria-label="Activity"
+              name="activityCalories"
+              min={0}
+              max={maxActivityDeficit}
+              step={1}
+              value={activityRange}
+              onChange={handleRange}
+            />
+          </FormControl>
+        </FormGroup>
 
       </Card>
 
