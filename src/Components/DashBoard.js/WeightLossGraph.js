@@ -1,7 +1,7 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import '../../styles/weightlossgraph.scss'
-
+import '../../styles/weightlossgraph.scss';
+import { Box , Card} from '@mui/material'
 const loss = [];
 for (let i = 0; i < 8; i++) {
   loss.push(i);
@@ -32,16 +32,16 @@ const options = {
   maintainAspectRatio: false,
 };
 
-function WeightLossGraph() {
+const WeightLossGraph = () => {
   return (
-    <div className="monitoring">
-      <div className="card">
+    <Box className="monitoring" sx={{ p: 2 }}>
+      <Card className="card" sx={{p: 2}}>
         <Line data={data} />
-      </div>
+      </Card>
 
-    </div>
+    </Box>
   );
 
-}
+};
 
 export default WeightLossGraph;

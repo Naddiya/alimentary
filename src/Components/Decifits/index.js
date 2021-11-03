@@ -72,7 +72,7 @@ const Deficits = () => {
   };
 
   return (
-    <Box className="deficits" >
+    <Box className="deficits"  sx={{ p: 2 }} >
       <h2>Calcul des déficits max</h2>
       <Card
         className="deficits-calculation"

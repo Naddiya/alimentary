@@ -19,7 +19,6 @@ import {
 
 const EnergyRequirement = () => {
   const [needs, setNeeds] = useState(0);
-  const [clear, setClear] = useState(false);
   const [values, setValues] = useState({
     height: '',
     weight: '',
@@ -57,7 +56,7 @@ const EnergyRequirement = () => {
       sportTime: '',
       genderLevel: ''
     });
-  }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -76,7 +75,7 @@ const EnergyRequirement = () => {
   };
 
   return (
-    <Box className="energy">
+    <Box className="energy" sx={{ p: 2 }}>
       <h2>Calcul des dépenses energétiques</h2>
       <Card sx={{ padding: '2rem', margin: 'auto', width: '50%' }} component="form" onSubmit={handleSubmit} ref={formRef}>
         <FormGroup id="energy-needs" sx={{ gap: '10px' }}>
