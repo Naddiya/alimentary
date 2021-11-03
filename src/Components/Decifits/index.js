@@ -1,7 +1,23 @@
 import React, { useState } from "react";
 import { calculateMaxEntriesDeficit, calculateMaxActivityDeficit, getDifference } from "./calculations";
+import ResultTable from './ResultTable';
+import {
+  Box,
+  Button,
+  FormControl,
+  InputLabel,
+  Card,
+  Paper,
+  Slider,
+  FormLabel,
+  FormGroup,
+  FormControlLabel,
+  TextField,
+  OutlinedInput,
 
-function Deficits() {
+} from '@mui/material';
+
+const Deficits = () => {
 
   const [clear, setClear] = useState(false);
   const [calories, setCalories] = useState('');
@@ -11,20 +27,20 @@ function Deficits() {
   const [entriesRange, setEntriesRange] = useState(0);
   const [activityRange, setActivityRange] = useState(0);
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     setCalories(e.target.value);
-  }
+  };
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setMaxEntriesDeficit(calculateMaxEntriesDeficit(calories));
     setMaxActivityDeficit(calculateMaxActivityDeficit(calories));
     setCombinedMaxDeficit(calories * 0.25);
     setActivityRange(calories * 0.25 * 0.5);
     setEntriesRange(calories * 0.25 * 0.5);
-  }
+  };
 
-  function handleRange(e) {
+  const handleRange = (e) => {
     e.preventDefault();
     const name = e.target.name;
     const value = Math.abs(e.target.value);
@@ -45,62 +61,79 @@ function Deficits() {
         setActivityRange(previousActivityRange + difference);
       } else { return; }
     }
-  }
+  };
 
-  function handleClear() {
+  const handleClear = () => {
     setMaxEntriesDeficit(0);
     setMaxActivityDeficit(0);
     setCalories('');
     setClear(!clear);
-  }
+  };
 
   return (
-    <div className="deficits">
+    <Box className="deficits" >
       <h2>Calcul des déficits max</h2>
+      <Card
+        className="deficits-calculation"
+        component="form"
+        onSubmit={handleSubmit}
+        sx={{ padding: '2rem', margin: 'auto', width: '50%' }}
+      >
+        <FormGroup sx={{ gap: '10px' }} >
+          <FormControl >
+            <InputLabel>Consomation calorique actuelle</InputLabel>
+            <OutlinedInput
+              type="number"
+              name="calories"
+              label="Consomation calorique actuelle"
+              value={calories}
+              onChange={handleChange}
+            />
+          </FormControl>
+        </FormGroup>
 
-      <form className="deficits-calculation" onSubmit={handleSubmit}>
-        <label htmlFor="calories">Consomation calorique actuelle:</label>
-        <input type="number" id="calories" name="calories" onChange={handleChange} value={calories} />
+        <Box className="call-to-action">
+          <Button className="button-calculate" type="submit" variant="outlined" color="success">Calculer</Button>
+          <Button className="button-clear" onClick={handleClear} variant="outlined" color="warning" >Initialiser</Button>
+        </Box>
 
-        <div className="deficits-entries calculation-result" >Déficit Maximales des entrées caloriques : {maxEntriesDeficit}</div>
-        <div className="deficits-activity calculation-result">Déficit Maximales des dépense d'activité : {maxActivityDeficit}</div>
+        <ResultTable entries={maxEntriesDeficit} activity={maxActivityDeficit}/>
+      </Card>
 
-        <div className="call-to-action">
-          <button className="button-calculate" type="submit">Calculer</button>
-          <button className="button-clear" onClick={handleClear} >Initialiser</button>
-        </div>
-      </form>
+
 
       <h2>Combiner les déficits</h2>
+      <Card className="deficits-range" component="form" sx={{ padding: '2rem', margin: 'auto', width: '50%' }}>
+        <FormLabel>Le déficit maximum correspond à 25% de la consommation courante, soit = {combinedMaxDeficit} calories</FormLabel>
 
-      <form >
+        <InputLabel >Entries : {entriesRange}/{maxEntriesDeficit}</InputLabel>
+        <FormControl>
+          <Slider
+            name="entriesCalories"
+            valueLabelDisplay="auto"
+            min={0}
+            max={maxEntriesDeficit}
+            step={1}
+            value={entriesRange}
+            onChange={handleRange}
+          />
+        </FormControl>
 
-        <p>Le déficit maximum correspond à 25% de la consommation courante, soit = {combinedMaxDeficit} calories</p>
-        <label htmlFor="entries-calories">Entries : {entriesRange}/{maxEntriesDeficit}</label>
-        <input
-          type="range"
-          id="entriesCalories"
-          name="entriesCalories"
-          min="0" max={maxEntriesDeficit}
-          step="1"
-          value={entriesRange}
-          onChange={handleRange}
-        />
+        <InputLabel>Activity : {activityRange}/ {maxActivityDeficit}</InputLabel>
+        <FormControl onChange={handleRange}>
+          <Slider
+            name="activityCalories"
+            valueLabelDisplay="auto"
+            min={0}
+            max={maxActivityDeficit}
+            step={1}
+            value={activityRange}
+          />
+        </FormControl>
 
-        <label htmlFor="activity-calories">Activity : {activityRange}/ {maxActivityDeficit}</label>
-        <input
-          type="range"
-          id="activityCalories"
-          name="activityCalories"
-          min="0" max={maxActivityDeficit}
-          step="1"
-          value={activityRange}
-          onChange={handleRange}
-        />
+      </Card>
 
-      </form>
-
-    </div>
+    </Box>
   );
 };
 
