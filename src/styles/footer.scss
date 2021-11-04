@@ -1,9 +1,12 @@
+@import "vars";
+
 .footer {
-  background-color: rgb(255, 228, 110);
-  position:relative;
+  background-color: $macaron-yellow;
+  color: $main-font-color;
+  position: relative;
   bottom: 0;
-  left:0;
-  right:0;
+  left: 0;
+  right: 0;
   padding: 1rem;
   width:max-content &-links {
     list-style: none;

@@ -1,12 +1,12 @@
+@import "vars";
+
 .navbar {
-  background-color: rgb(161, 231, 147);
-}
-.navbar {
+  background-color: $macaron-green;
   padding: 1rem;
   &-links {
     & a {
       text-decoration: none;
-      color: rgb(43, 43, 43);
+      color: $main-font-color;
     }
     &-pages {
       box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -14,5 +14,3 @@
     }
   }
 }
-
-
