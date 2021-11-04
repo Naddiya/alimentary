@@ -1,23 +1,20 @@
 import React, { useState } from "react";
-import { MenuItem, Box, Button, Menu } from "@mui/material";
+import { MenuItem, Box, Menu } from "@mui/material";
 import { Link } from "react-router-dom";
 import '../../styles/navbar.scss';
 
 
 function ToggleToolsMenu() {
   const [anchorEl, setAnchorEl] = useState(null);
-
   const handleClick = (e) => setAnchorEl(e.currentTarget);
   const handleClose = (e) => {
     setAnchorEl(null);
   };
-
   const open = Boolean(anchorEl);
 
   return (
-    <Box>
+    <Box className="navbar-links-pages toggle">
       <MenuItem
-        className="navbar-links-pages"
         aria-controls="navbar"
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
@@ -45,7 +42,6 @@ function ToggleToolsMenu() {
           Déficits maximaux
         </MenuItem>
       </Menu >
-
     </Box>
   );
 };

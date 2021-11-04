@@ -1,4 +1,4 @@
-export function calculateEnergyRequirement(targetValues) {
+export function calculateEnergyNeeds(targetValues) {
   targetValues.sportTime !== undefined ? Math.abs(targetValues.sportTime) : targetValues.sportTime = 0;
   
   const weight = Math.abs(targetValues.weight);

@@ -3,14 +3,21 @@
 .navbar {
   background-color: $macaron-green;
   padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   &-links {
-    & a {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    & a,
+    .toggle {
       text-decoration: none;
       color: $main-font-color;
+      border-radius: 5px;
     }
     &-pages {
-      box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-      align-self: center;
+      box-shadow: $links-boxshadow;
     }
   }
 }

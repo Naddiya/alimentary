@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { activity, gender, sport } from '../../../data/data';
-import { calculateEnergyRequirement } from './calculations';
+import { calculateEnergyNeeds } from './calculations';
 import {
   Box,
   Button,
@@ -17,7 +17,7 @@ import {
   Radio,
 } from '@mui/material';
 
-const EnergyRequirement = () => {
+const EnergyNeeds = () => {
   const [needs, setNeeds] = useState(0);
   const [values, setValues] = useState({
     height: '',
@@ -28,6 +28,7 @@ const EnergyRequirement = () => {
     sportTime: '',
     genderLevel: ''
   });
+  const formRef = useRef(null);
 
   const activityRadios = activity.map(elem => ({
     name: elem.level,
@@ -42,8 +43,6 @@ const EnergyRequirement = () => {
     value: elem.ratio,
   }));
 
-  const formRef = useRef(null);
-
   const handleClear = () => {
     setNeeds(0);
     formRef.current.reset();
@@ -57,7 +56,6 @@ const EnergyRequirement = () => {
       genderLevel: ''
     });
   };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({
@@ -65,20 +63,19 @@ const EnergyRequirement = () => {
       [name]: value,
     });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    const result = calculateEnergyRequirement(values);
+    const result = calculateEnergyNeeds(values);
     if (!!result) {
       setNeeds(result);
     }
   };
 
   return (
-    <Box className="energy" sx={{ p: 2 }}>
+    <Box className="tools">
       <h2>Calcul des dépenses energétiques</h2>
-      <Card sx={{ padding: '2rem', margin: 'auto', width: '50%' }} component="form" onSubmit={handleSubmit} ref={formRef}>
-        <FormGroup id="energy-needs" sx={{ gap: '10px' }}>
+      <Card className="tools-energy" component="form" onSubmit={handleSubmit} ref={formRef}>
+        <FormGroup className="tools-energy-group">
           <FormControl>
             <InputLabel>Taille</InputLabel>
             <OutlinedInput
@@ -161,11 +158,10 @@ const EnergyRequirement = () => {
               )}
             </RadioGroup>
           </FormControl>
-
-          <Paper className="calculation-result">Resultat : {needs}</Paper>
-          <Box className="call-to-action">
-            <Button className="button-calculate" type="submit" variant="outlined" color="success">Calculer</Button>
-            <Button className="button-clear" onClick={handleClear} variant="outlined" color="warning">Initialiser</Button>
+          <Paper className="tools-energy-result">Resultat : {needs}</Paper>
+          <Box className="tools-energy-action">
+            <Button className="tools-energy-action-calculate" type="submit" variant="outlined" color="success">Calculer</Button>
+            <Button className="tools-energy-action-clear" onClick={handleClear} variant="outlined" color="warning">Initialiser</Button>
           </Box>
         </FormGroup>
       </Card>
@@ -173,5 +169,4 @@ const EnergyRequirement = () => {
   );
 };
 
-
-export default EnergyRequirement;
+export default EnergyNeeds;

@@ -1,10 +1,10 @@
 import React from 'react';
-import '../../styles/footer.scss';
 import { Box, MenuList, MenuItem } from '@mui/material';
 
+import '../../styles/footer.scss';
 
 function Footer() {
-
+  
   return (
     <Box className="footer" >
       <MenuList className="footer-links">

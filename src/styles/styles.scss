@@ -1,5 +1,6 @@
-@import 'vars';
+@import "vars";
 
+// LOADER //
 .loader {
   position: absolute;
   top: calc(50% - 4em);
@@ -15,12 +16,41 @@
     opacity: 0;
   }
 }
-
 @keyframes load8 {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+// GENERALS //
+.tools {
+  h2 {
+    text-align: center;
+  }
+  &-bmi,
+  &-deficits,
+  &-energy {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto;
+    padding: 2rem;
+    gap: 10px;
+    &-group {
+      gap: 10px;
+    }
+    &-result {
+      padding: 1rem;
+      font-weight: 700;
+    }
+    &-action {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: center;
+    }
   }
 }

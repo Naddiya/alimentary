@@ -5,16 +5,15 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navbar from './Components/Layout/NavBar';
 import Footer from './Components/Layout/Footer';
 import BodyMassIndex from './Components/BodyMassIndex';
-import EnergyRequirement from './Components/EnergyRequirement';
 import Deficits from './Components/Decifits';
+import EnergyNeeds from './Components/EnergyNeeds';
 import DashBoard from './Components/DashBoard.js';
 import CssBaseline from '@mui/material/CssBaseline';
+
 import './styles/styles.scss';
 
 const loader = document.querySelector('.loader');
-
 const showLoader = () => loader.classList.remove('loader--hide');
-
 const hideLoader = () => loader.classList.add('loader--hide');
 
 const App = ({ hideLoader }) => {
@@ -27,7 +26,7 @@ const App = ({ hideLoader }) => {
         <Route exact path='/' component={Home} />
         <Route path='/bmi' component={BodyMassIndex} />
         <Route path='/deficits' component={Deficits} />
-        <Route path='/energy' component={EnergyRequirement} />
+        <Route path='/energy' component={EnergyNeeds} />
         <Route path='/dashboard' component={DashBoard} />
       </Switch>
       <Footer />

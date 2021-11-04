@@ -3,19 +3,16 @@ import { calculateBmi } from './calculations';
 import { Box, Button, FormControl, InputLabel, Card, Paper, OutlinedInput, InputAdornment } from '@mui/material';
 
 function BodyMassIndex() {
-
   const [bmi, setBmi] = useState(0);
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
   const [clear, setClear] = useState(false);
-
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const result = calculateBmi(weight, height);
     setBmi(result);
   };
-
-  function handleClear(e) {
+  const handleClear = (e) => {
     e.preventDefault();
     setClear(!clear);
     setWeight('');
@@ -24,9 +21,9 @@ function BodyMassIndex() {
   };
 
   return (
-    <Box>
+    <Box className="tools">
       <h2>Calculer l'indice de masse corporelle</h2>
-      <Card className="bmi" component="form" onSubmit={handleSubmit}>
+      <Card className="tools-bmi" component="form" onSubmit={handleSubmit}>
         <FormControl variant="outlined">
           <InputLabel>Taille</InputLabel>
           <OutlinedInput
@@ -57,10 +54,10 @@ function BodyMassIndex() {
             }}
           />
         </FormControl>
-        <Paper className="calculation-result">Resultat: {bmi}</Paper>
-        <Box className="call-to-action">
-          <Button id="button-calculate" variant="outlined" color="success" type="submit">Calcul du BMI</Button>
-          <Button id="button-clear" variant="outlined" color="warning" className="button-clear" onClick={handleClear}>Initialiser</Button>
+        <Paper className="tools-bmi-result">Resultat {bmi}</Paper>
+        <Box className="tools-bmi-action">
+          <Button id="tools-bmi-action-calculate" variant="outlined" color="success" type="submit">Calcul du BMI</Button>
+          <Button id="tools-bmi-action-clear" variant="outlined" color="warning" className="button-clear" onClick={handleClear}>Initialiser</Button>
         </Box>
       </Card>
     </Box>

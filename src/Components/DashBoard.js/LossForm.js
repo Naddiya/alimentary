@@ -34,12 +34,10 @@ const columns = [
   //     }`,
   // },
 ];
-
 const rows = [
   { id: 1, date: '1/1/2021', weight: '125', loss: '0' },
   { id: 2, date: '2/1/2021', weight: '124', loss: '1' },
   { id: 3, date: '3/1/2021', weight: '123', loss: '2' },
-
 ];
 
 const LossForm = () => {

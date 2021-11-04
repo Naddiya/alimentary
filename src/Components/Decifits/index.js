@@ -7,19 +7,13 @@ import {
   FormControl,
   InputLabel,
   Card,
-  Paper,
   Slider,
   FormLabel,
   FormGroup,
-  FormControlLabel,
-  TextField,
   OutlinedInput,
-  FromGroup
-
 } from '@mui/material';
 
 const Deficits = () => {
-
   const [clear, setClear] = useState(false);
   const [calories, setCalories] = useState('');
   const [maxEntriesDeficit, setMaxEntriesDeficit] = useState(0);
@@ -27,11 +21,9 @@ const Deficits = () => {
   const [combinedMaxDeficit, setCombinedMaxDeficit] = useState(0);
   const [entriesRange, setEntriesRange] = useState(0);
   const [activityRange, setActivityRange] = useState(0);
-
   const handleChange = (e) => {
     setCalories(e.target.value);
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setMaxEntriesDeficit(calculateMaxEntriesDeficit(calories));
@@ -40,7 +32,6 @@ const Deficits = () => {
     setActivityRange(calories * 0.25 * 0.5);
     setEntriesRange(calories * 0.25 * 0.5);
   };
-
   const handleRange = (e) => {
     e.preventDefault();
     const name = e.target.name;
@@ -49,7 +40,6 @@ const Deficits = () => {
     const previousEntriesRange = Math.abs(entriesRange);
     const difference = getDifference(name, value, previousActivityRange, previousEntriesRange);
     const isValid = (activityRange + entriesRange) <= combinedMaxDeficit;
-
     if (name === 'activityCalories' && isValid) {
       if ((Math.abs(maxActivityDeficit) - previousActivityRange) < value) {
         setActivityRange(value);
@@ -63,7 +53,6 @@ const Deficits = () => {
       } else { return; }
     }
   };
-
   const handleClear = () => {
     setMaxEntriesDeficit(0);
     setMaxActivityDeficit(0);
@@ -72,15 +61,14 @@ const Deficits = () => {
   };
 
   return (
-    <Box className="deficits"  sx={{ p: 2 }} >
+    <Box className="tools">
       <h2>Calcul des déficits max</h2>
       <Card
-        className="deficits-calculation"
+        className="tools-deficits"
         component="form"
         onSubmit={handleSubmit}
-        sx={{ padding: '2rem', margin: 'auto', width: '50%' }}
       >
-        <FormGroup sx={{ gap: '10px' }} >
+        <FormGroup>
           <FormControl onChange={handleChange}>
             <InputLabel>Consomation calorique actuelle</InputLabel>
             <OutlinedInput
@@ -91,23 +79,16 @@ const Deficits = () => {
             />
           </FormControl>
         </FormGroup>
-
-        <Box className="call-to-action">
-          <Button className="button-calculate" type="submit" variant="outlined" color="success">Calculer</Button>
-          <Button className="button-clear" onClick={handleClear} variant="outlined" color="warning" >Initialiser</Button>
+        <Box className="tools-deficits-action">
+          <Button className="tools-deficits-action-calculate" type="submit" variant="outlined" color="success">Calculer</Button>
+          <Button className="tools-deficits-action-clear" onClick={handleClear} variant="outlined" color="warning" >Initialiser</Button>
         </Box>
-
         <ResultTable entries={maxEntriesDeficit} activity={maxActivityDeficit} />
       </Card>
-
-
-
       <h2>Combiner les déficits</h2>
-      <Card className="deficits-range" component="form" sx={{ padding: '2rem', margin: 'auto', width: '50%' }}>
+      <Card className="tools-deficits" component="form">
         <FormGroup>
-
           <FormLabel>Le déficit maximum correspond à 25% de la consommation courante, soit = {combinedMaxDeficit} calories</FormLabel>
-
           <InputLabel >Entries {entriesRange}/{maxEntriesDeficit}</InputLabel>
           <FormControl>
             <Slider
@@ -120,7 +101,6 @@ const Deficits = () => {
               onChange={handleRange}
             />
           </FormControl>
-
           <InputLabel>Activity {activityRange}/ {maxActivityDeficit}</InputLabel>
           <FormControl >
             <Slider
@@ -134,9 +114,7 @@ const Deficits = () => {
             />
           </FormControl>
         </FormGroup>
-
       </Card>
-
     </Box>
   );
 };
