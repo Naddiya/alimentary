@@ -40,8 +40,4 @@ yarn dev
 - :swimmer: [Physical activities compendieum](https://sites.google.com/site/compendiumofphysicalactivities/home)
 - :crystal_ball: [National Weight Control Registry](http://www.nwcr.ws/)
 - :syringe: [OMS](https://www.who.int/fr/news-room/fact-sheets/detail/obesity-and-overweight)
-- www.les-calories.com
 
-- www.menunature.com
-
-- www.fatsecret.fr
