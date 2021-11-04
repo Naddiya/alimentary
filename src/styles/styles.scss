@@ -54,3 +54,11 @@
     }
   }
 }
+.home {
+  width: 80%;
+  margin: auto;
+  &-title,
+  &-subtitle {
+    text-align: center;
+  }
+}

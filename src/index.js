@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import Home from './Components/Home';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from './Components/Layout/NavBar';
 import Footer from './Components/Layout/Footer';
 import BodyMassIndex from './Components/BodyMassIndex';
@@ -20,7 +20,7 @@ const App = ({ hideLoader }) => {
   useEffect(hideLoader, []);
 
   return (
-    <Router>
+    <div className="App">
       <Navbar />
       <Switch>
         <Route exact path='/' component={Home} />
@@ -30,17 +30,19 @@ const App = ({ hideLoader }) => {
         <Route path='/dashboard' component={DashBoard} />
       </Switch>
       <Footer />
-    </Router>
+    </div>
   );
 };
 
 setTimeout(() =>
   ReactDOM.render(
     <React.StrictMode>
-      <CssBaseline />
-      <App
-        hideLoader={hideLoader}
-        showLoader={showLoader} />
+      <Router>
+        <CssBaseline />
+        <App
+          hideLoader={hideLoader}
+          showLoader={showLoader} />
+      </Router>
     </React.StrictMode>,
     document.getElementById('root')
   )
