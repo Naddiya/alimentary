@@ -73,7 +73,7 @@ const EnergyNeeds = () => {
 
   return (
     <Box className="tools">
-      <h2>Calcul des dépenses energétiques</h2>
+      <h2>Calcul du besoin énergétique</h2>
       <Card className="tools-energy" component="form" onSubmit={handleSubmit} ref={formRef}>
         <FormGroup className="tools-energy-group">
           <FormControl>
@@ -106,7 +106,7 @@ const EnergyNeeds = () => {
             />
           </FormControl>
           <FormControl>
-            <FormLabel component="legend">Dépenses énergétique de base</FormLabel>
+            <FormLabel component="legend">Dépense énergétique de base</FormLabel>
             <RadioGroup row value={values.activityLevel} onChange={handleChange}>
               {activityRadios.map(elem =>
                 <FormControlLabel
@@ -121,7 +121,7 @@ const EnergyNeeds = () => {
             </RadioGroup>
           </FormControl>
           <FormControl>
-            <FormLabel component="legend">Dépenses selon la pratique sportive</FormLabel>
+            <FormLabel component="legend">Dépense selon la pratique sportive</FormLabel>
             <RadioGroup row value={values.sportLevel} onChange={handleChange} >
               {sportRadios.map(elem =>
                 <FormControlLabel key={elem.name}
@@ -144,7 +144,7 @@ const EnergyNeeds = () => {
             />
           </FormControl>
           <FormControl >
-            <FormLabel component="legend">Dépenses selon le genre</FormLabel>
+            <FormLabel component="legend">Dépense selon le genre</FormLabel>
             <RadioGroup row value={values.genderLevel} onChange={handleChange}>
               {genderRadios.map(elem =>
                 <FormControlLabel
@@ -158,7 +158,7 @@ const EnergyNeeds = () => {
               )}
             </RadioGroup>
           </FormControl>
-          <Paper className="tools-energy-result">Resultat : {needs}</Paper>
+          <Paper className="tools-energy-result">Calories par jour : {needs}</Paper>
           <Box className="tools-energy-action">
             <Button className="tools-energy-action-calculate" type="submit" variant="outlined" color="success">Calculer</Button>
             <Button className="tools-energy-action-clear" onClick={handleClear} variant="outlined" color="warning">Initialiser</Button>
