@@ -13,6 +13,9 @@ import {
   OutlinedInput,
 } from '@mui/material';
 
+import '../../styles/tools.scss'
+
+
 const Deficits = () => {
   const [clear, setClear] = useState(false);
   const [calories, setCalories] = useState('');

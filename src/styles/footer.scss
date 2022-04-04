@@ -1,17 +1,15 @@
 @import "vars";
 
 .footer {
-  background-color: $macaron-yellow;
-  color: $main-font-color;
-  position: relative;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1rem;
-  width:max-content &-links {
-    list-style: none;
+  display: flex;
+  flex-direction: column;
+  &-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
   &-bottom {
     text-align: center;
+    color: rgb(29, 73, 47);
   }
 }

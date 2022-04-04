@@ -4,18 +4,21 @@ import { Box, MenuList, MenuItem } from '@mui/material';
 import '../../styles/footer.scss';
 
 function Footer() {
-  
-  return (
-    <Box className="footer" >
-      <MenuList className="footer-links">
-        <MenuItem className="footer-link">Nous contacter</MenuItem>
-        <MenuItem>About</MenuItem>
-        <MenuItem>Réseaux Sociaux</MenuItem>
-        <MenuItem>Mentions Légales</MenuItem>
-      </MenuList>
-      <Box className="footer-bottom">Fièrement propulsé par Naddiya - 2021</Box>
-    </Box>
-  );
+
+    const year = new Date()
+    console.log(year.getFullYear())
+
+    return (
+        <Box className="footer">
+                <MenuList className='footer-top'>
+                    <MenuItem >Nous contacter</MenuItem>
+                    <MenuItem>About</MenuItem>
+                    <MenuItem>Réseaux Sociaux</MenuItem>
+                    <MenuItem>Mentions Légales</MenuItem>
+                </MenuList>
+            <Box className='footer-bottom'>Fièrement propulsé par Naddiya - { year.getFullYear()}</Box>
+        </Box>
+    );
 }
 
 export default Footer;

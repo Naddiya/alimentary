@@ -1,11 +1,9 @@
 @import "vars";
 
 .navbar {
-  background-color: $macaron-green;
-  padding: 1rem;
+  top: 0;
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   &-links {
     display: flex;
     justify-content: center;
@@ -15,9 +13,6 @@
       text-decoration: none;
       color: $main-font-color;
       border-radius: 5px;
-    }
-    &-pages {
-      box-shadow: $links-boxshadow;
     }
   }
 }

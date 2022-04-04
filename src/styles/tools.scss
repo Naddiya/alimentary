@@ -1,0 +1,28 @@
+.tools {
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
+  &-bmi,
+  &-deficits,
+  &-energy {
+    max-width: 30%;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto;
+    padding: 2rem;
+    gap: 10px;
+    &-group {
+      gap: 10px;
+    }
+    &-result {
+      padding: 1rem;
+    }
+    &-action {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: center;
+    }
+  }
+}

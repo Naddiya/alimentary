@@ -6,3 +6,9 @@ dist/
 coverage/
 .vscode/
 .parcel-cache/
+webpack.config.common.js
+webpack.config.dev.js
+webpack.config.prod.js
+doc
+.vscode
+.husky

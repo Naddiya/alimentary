@@ -1,4 +1,4 @@
-import { Box, MenuList, MenuItem, Button } from '@mui/material';
+import { Box, MenuList, MenuItem, Divider} from '@mui/material';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import ToggleToolsMenu from './ToggleToolsMenu.js';
@@ -29,6 +29,7 @@ function Navbar() {
           Signin
         </MenuItem>
       </MenuList>
+      <Divider />
     </Box>
   );
 }
