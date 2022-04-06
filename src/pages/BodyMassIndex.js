@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
-import { calculateBmi } from './calculations';
-import { Box, Button, FormControl, InputLabel, Card, Paper, OutlinedInput, InputAdornment } from '@mui/material';
-import '../../styles/tools.scss'
+import { calculateBmi } from '../calculations/bodyMassIndexCalculation';
+import {
+  Box,
+  Button,
+  FormControl,
+  InputLabel,
+  Card,
+  Paper,
+  OutlinedInput,
+  InputAdornment
+} from '@mui/material';
+import '../styles/tools.scss';
 
 function BodyMassIndex() {
   const [bmi, setBmi] = useState(0);

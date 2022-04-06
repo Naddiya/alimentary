@@ -1,7 +1,7 @@
 
 import React from "react";
-import BodyMassIndex from "../Components/BodyMassIndex";
-import { calculateBmi } from '../Components/BodyMassIndex/calculations';
+import BodyMassIndex from "../pages/BodyMassIndex";
+import { calculateBmi } from '../calculations/bodyMassIndexCalculations';
 import { render, screen, fireEvent, cleanup } from "@testing-library/react";
 
 

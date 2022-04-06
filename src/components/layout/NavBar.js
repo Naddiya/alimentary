@@ -1,7 +1,7 @@
 import { Box, MenuList, MenuItem, Divider} from '@mui/material';
 import { Link } from 'react-router-dom';
 import React from 'react';
-import ToggleToolsMenu from './ToggleToolsMenu.js';
+import ToggleToolsMenu from './ToggleToolsMenu.js.js';
 
 import '../../styles/navbar.scss';
 

@@ -1,23 +1,69 @@
-const { merge } = require('webpack-merge');
-const commonConfig = require('./webpack.config.common');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-module.exports = merge(commonConfig, {
+
+module.exports = {
     mode: 'development',
-    devtool: 'inline-source-map',
+    entry: {
+        index: path.join(__dirname, "src", "index.js"),
+    },
+    output: {
+        filename: "bundle.js",
+        path: path.resolve(__dirname, "./dist"),
+    },
     devServer: {
         historyApiFallback: true,
-        port: 5000
+        port: 5000,
+        static: {
+            directory: path.resolve(__dirname, './dist')
+        }
     },
+    devtool: 'inline-source-map',
     module: {
         rules: [
             {
-                test: /\.s[ac]ss$/i,
+                test: /\.(js|jsx)$/,
+                exclude: [/[\\/]node_modules[\\/]/, /doc/],
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react']
+                    }
+                }
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
                 use: [
-                    "style-loader",
-                    "css-loader",
-                    "sass-loader",
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'assets/',
+                        },
+                    },
                 ],
             },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader', 'css-loader',
+                ]
+            },
+            {
+                test: /\.(scss|sass)$/,
+                use: [
+                    'style-loader', 'css-loader', 'sass-loader'
+                ]
+            },
         ]
-    }
-});
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            inject: true,
+            template: path.join(__dirname, "public", "index.html"),
+        }),
+        new CleanWebpackPlugin(),
+    ],
+};
+

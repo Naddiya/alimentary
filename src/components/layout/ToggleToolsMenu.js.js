@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MenuItem, Box, Menu } from "@mui/material";
 import { Link } from "react-router-dom";
+
 import '../../styles/navbar.scss';
 
 
@@ -35,7 +36,7 @@ function ToggleToolsMenu() {
         <MenuItem component={Link} to="/bmi" onClick={handleClose}>
           Indice de masse corporelle
         </MenuItem>
-        <MenuItem component={Link} to="/energy" onClick={handleClose}>
+        <MenuItem component={Link} to="/energy-needs" onClick={handleClose}>
           Besoins energétiques
         </MenuItem>
         <MenuItem component={Link} to="/deficits" onClick={handleClose}>

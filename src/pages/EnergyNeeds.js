@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { activity, gender, sport } from '../../../data/data';
-import { calculateEnergyNeeds } from './calculations';
+import { activity, gender, sport } from '../../data/data';
+import { calculateEnergyNeeds } from '../calculations/energyNeedsCalculations';
 import {
     Box,
     Button,
@@ -16,7 +16,7 @@ import {
     RadioGroup,
     Radio,
 } from '@mui/material';
-import '../../styles/tools.scss';
+import '../styles/tools.scss';
 
 
 const EnergyNeeds = () => {

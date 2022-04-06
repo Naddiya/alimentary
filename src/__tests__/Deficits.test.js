@@ -3,7 +3,7 @@ import {
   calculateMaxActivityDeficit,
   calculateMaxCombinedDeficit,
   getDifference
-} from '../Components/Decifits/calculations';
+} from '../calculations/deficitsCalculations';
 
 describe("calculateMaxEntriesDeficit", () => {
   test('calculateMaxEntriesDeficit for 3000 calories should return 450 max deficit', () => {

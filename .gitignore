@@ -12,3 +12,4 @@ webpack.config.prod.js
 doc
 .vscode
 .husky
+yarn-error.log

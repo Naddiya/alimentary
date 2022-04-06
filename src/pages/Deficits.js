@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { calculateMaxEntriesDeficit, calculateMaxActivityDeficit, getDifference } from "./calculations";
-import ResultTable from './ResultTable';
+import { calculateMaxEntriesDeficit, calculateMaxActivityDeficit, getDifference } from "../calculations/deficitsCalculations";
+import ResultTable from '../components/ResultTable';
 import {
   Box,
   Button,
@@ -13,7 +13,7 @@ import {
   OutlinedInput,
 } from '@mui/material';
 
-import '../../styles/tools.scss'
+import '../styles/tools.scss'
 
 
 const Deficits = () => {
