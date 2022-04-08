@@ -1,7 +1,7 @@
 
 import React from "react";
 import BodyMassIndex from "../pages/BodyMassIndex";
-import { calculateBmi } from '../calculations/bodyMassIndexCalculations';
+import { calculateBmi } from '../calculations/bodyMassIndexCalculation';
 import { render, screen, fireEvent, cleanup } from "@testing-library/react";
 
 
@@ -45,7 +45,7 @@ describe('button clear', () => {
   });
 });
 
-describe('calulate weight', () => {
+describe('calculate weight', () => {
   test('height = 172 and weight = 116 should returns 31.29', () => {
     expect(calculateBmi(116, 172)).toEqual(39.21);
   });
