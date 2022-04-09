@@ -9,13 +9,12 @@ module.exports = {
         index: path.join(__dirname, 'src', 'index.js'),
     },
     output: {
-        filename: '[name].[contenthash].js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
     },
     optimization: {
         splitChunks: {
             chunks: 'all',
-            minSize: 3000
         }
     },
     performance: {
@@ -66,7 +65,7 @@ module.exports = {
             template: path.join(__dirname, 'public', 'index.html'),
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css',
+            filename: '[name].css',
             chunkFilename: '[id].css'
         }),
         new CleanWebpackPlugin(),

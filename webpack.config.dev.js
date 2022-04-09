@@ -16,7 +16,7 @@ module.exports = {
         historyApiFallback: true,
         port: 5000,
         static: {
-            directory: path.resolve(__dirname, './dist')
+            directory: path.resolve(__dirname, 'dist')
         },
         devMiddleware: {
             index: 'index.html',
