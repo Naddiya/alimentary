@@ -1,6 +1,7 @@
 module.exports = {
+  verbose: true,
   transform: {
     "^.+\\.(js|jsx)$": "babel-jest",
-    "^.+\\.scss$": 'jest-scss-transform',
+    "^.+\\.scss$": 'jest-css-modules-transform',
   }
 };

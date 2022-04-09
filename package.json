@@ -13,7 +13,7 @@
         "format": "prettier --write \"src/**/**/.{js, jsx}\"",
         "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
         "dev": "webpack serve --config webpack.config.dev.js --hot --open",
-        "build": "webpack --config webpack.config.production.js",
+        "build": "webpack --config webpack.config.prod.js",
         "clean": "rm -rf .cache dist node_modules"
     },
     "repository": {

@@ -6,17 +6,21 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
     mode: 'development',
     entry: {
-        index: path.join(__dirname, "src", "index.js"),
+        index: path.join(__dirname, 'src', 'index.js'),
     },
     output: {
-        filename: "bundle.js",
-        path: path.resolve(__dirname, "./dist"),
+        filename: '[name].[contenthash].js',
+        path: path.resolve(__dirname, 'dist'),
     },
     devServer: {
         historyApiFallback: true,
         port: 5000,
         static: {
             directory: path.resolve(__dirname, './dist')
+        },
+        devMiddleware: {
+            index: 'index.html',
+            writeToDisk: true
         }
     },
     devtool: 'inline-source-map',
@@ -24,7 +28,7 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                exclude: [/[\\/]node_modules[\\/]/, /doc/],
+                exclude: [/node_modules/, /doc/],
                 use: {
                     loader: "babel-loader",
                     options: {
@@ -34,6 +38,7 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
+                type: 'asset',
                 use: [
                     {
                         loader: 'file-loader',
@@ -61,7 +66,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             inject: true,
-            template: path.join(__dirname, "public", "index.html"),
+            template: path.join(__dirname, 'public', 'index.html'),
         }),
         new CleanWebpackPlugin(),
     ],
