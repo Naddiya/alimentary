@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { pathToFileURL } = require('url');
 
 
 module.exports = {
@@ -37,16 +38,12 @@ module.exports = {
                 }
             },
             {
-                test: /\.(png|svg|jpg|gif)$/,
-                type: 'asset',
+                test: /\.(png|jpe?g|gif)$/i,
                 use: [
                     {
                         loader: 'file-loader',
-                        options: {
-                            outputPath: 'assets/',
-                        },
                     },
-                ],
+                ]
             },
             {
                 test: /\.css$/,
@@ -67,6 +64,7 @@ module.exports = {
             filename: 'index.html',
             inject: true,
             template: path.join(__dirname, 'public', 'index.html'),
+            favicon: path.join(__dirname, 'public', 'favicon.ico')
         }),
         new CleanWebpackPlugin(),
     ],

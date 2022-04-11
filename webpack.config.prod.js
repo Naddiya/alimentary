@@ -63,6 +63,7 @@ module.exports = {
             filename: 'index.html',
             inject: true,
             template: path.join(__dirname, 'public', 'index.html'),
+            favicon: path.join(__dirname, 'public', 'favicon.ico')
         }),
         new MiniCssExtractPlugin({
             filename: '[name].css',
