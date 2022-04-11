@@ -7,7 +7,7 @@ const { pathToFileURL } = require('url');
 module.exports = {
     mode: 'development',
     entry: {
-        index: path.join(__dirname, 'src', 'index.js'),
+        index: path.join(__dirname, 'frontend' , 'src', 'index.js'),
     },
     output: {
         filename: '[name].[contenthash].js',
@@ -63,8 +63,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             inject: true,
-            template: path.join(__dirname, 'public', 'index.html'),
-            favicon: path.join(__dirname, 'public', 'favicon.ico')
+            template: path.join(__dirname, 'frontend', 'public', 'index.html'),
+            favicon: path.join(__dirname, 'frontend', 'public', 'favicon.ico')
         }),
         new CleanWebpackPlugin(),
     ],
