@@ -1,6 +1,6 @@
 import { expect, test } from "@jest/globals";
-import Home from '../pages/Home';
+import HomePage from "../pages/HomePage";
 
-test('returns component App', () => {
-    expect(Home).toBeDefined();
-  });
+test("returns component App", () => {
+  expect(HomePage).toBeDefined();
+});

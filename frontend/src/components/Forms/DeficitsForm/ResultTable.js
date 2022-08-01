@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Table,
   TableBody,
@@ -6,18 +6,18 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Paper
-} from '@mui/material';
+  Paper,
+} from "@mui/material";
 
 const ResultTable = (props) => {
-  const entries = props.entries;
-  const activity = props.activity;
+  const { entries, activity } = props;
+
   const createData = (name, calories) => {
     return { name, calories };
   };
   const rows = [
-    createData('Entrées', entries),
-    createData('Dépenses', activity),
+    createData("Entrées", entries),
+    createData("Dépenses", activity),
   ];
 
   return (
@@ -33,7 +33,7 @@ const ResultTable = (props) => {
           {rows.map((row) => (
             <TableRow
               key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
                 {row.name}
@@ -43,7 +43,7 @@ const ResultTable = (props) => {
           ))}
         </TableBody>
       </Table>
-    </TableContainer >
+    </TableContainer>
   );
 };
 

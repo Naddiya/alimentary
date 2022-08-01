@@ -1,24 +1,24 @@
-import React from 'react';
-import { Box, MenuList, MenuItem } from '@mui/material';
+import React from "react";
+import { Box, MenuList, MenuItem } from "@mui/material";
 
-import '../../styles/footer.scss';
+import "../../styles/footer.scss";
 
 function Footer() {
+  const year = new Date();
 
-    const year = new Date()
-    console.log(year.getFullYear())
-
-    return (
-        <Box className="footer">
-                <MenuList className='footer-top'>
-                    <MenuItem >Nous contacter</MenuItem>
-                    <MenuItem>About</MenuItem>
-                    <MenuItem>Réseaux Sociaux</MenuItem>
-                    <MenuItem>Mentions Légales</MenuItem>
-                </MenuList>
-            <Box className='footer-bottom'>Fièrement propulsé par Naddiya - { year.getFullYear()}</Box>
-        </Box>
-    );
+  return (
+    <Box className="footer">
+      <MenuList className="footer-top">
+        <MenuItem>Nous contacter</MenuItem>
+        <MenuItem>About</MenuItem>
+        <MenuItem>Réseaux Sociaux</MenuItem>
+        <MenuItem>Mentions Légales</MenuItem>
+      </MenuList>
+      <Box className="footer-bottom">
+        Fièrement propulsé par Naddiya - {year.getFullYear()}
+      </Box>
+    </Box>
+  );
 }
 
 export default Footer;
