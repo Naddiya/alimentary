@@ -9,6 +9,7 @@ import DeficitsPage from "./pages/DeficitsPage";
 import EnergyNeedsPage from "./pages/EnergyNeedsPage";
 import DashBoardPage from "./pages/DashBoardPage";
 import AboutPage from "./pages/AboutPage";
+import CaloriesCounterPage from "./pages/CaloriesCounterPage";
 
 import "./styles/styles.scss";
 import "./styles/app.scss";
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/energy-needs" element={<EnergyNeedsPage />} />
           <Route path="/dashboard" element={<DashBoardPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/calories-counter" element={<CaloriesCounterPage />} />
         </Routes>
         <Footer />
       </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { Box } from "@mui/system";
 import "../styles/tools.scss";
 
-import DeficitsForm from "../components/Forms/DeficitsForm";
+import DeficitsForm from "../components/tools/forms/deficitsForms";
 
 const DeficitsPage = () => {
   return (

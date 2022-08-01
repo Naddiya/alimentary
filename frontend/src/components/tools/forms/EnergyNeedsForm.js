@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
-import { activity, gender, sport } from "../../../data/data";
-import { calculateEnergyNeeds } from "../../calculations/energyNeedsCalculations";
+import { activity, gender, sport } from "../../../../data/data";
+import { calculateEnergyNeeds } from "../../../calculations/energyNeedsCalculations";
 import {
   Box,
   Button,

@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
-import Bubble from "../components/Bubble";
+import Bubble from "../components/layout/Bubble";
 
 import "../styles/home.scss";
 

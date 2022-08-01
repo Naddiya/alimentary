@@ -1,5 +1,5 @@
 import React from "react";
-import BodyMassIndexForm from "../components/Forms/BodyMassIndexForm";
+import BodyMassIndexForm from "../components/tools/forms/BodyMassIndexForm";
 import { calculateBmi } from "../calculations/bodyMassIndexCalculation";
 import { render, screen, fireEvent, cleanup } from "@testing-library/react";
 

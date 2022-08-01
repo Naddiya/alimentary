@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { MenuItem, Box, Menu } from "@mui/material";
 import { Link } from "react-router-dom";
 
-import '../../styles/navbar.scss';
-
+import "../../styles/navbar.scss";
 
 function ToggleToolsMenu() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -18,19 +17,20 @@ function ToggleToolsMenu() {
       <MenuItem
         aria-controls="navbar"
         aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick} >
+        aria-expanded={open ? "true" : undefined}
+        onClick={handleClick}
+      >
         Tools
       </MenuItem>
 
       <Menu
         className="navbar-links-pages"
-        id='menu'
+        id="menu"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          'aria-labelledby': 'menu',
+          "aria-labelledby": "menu",
         }}
       >
         <MenuItem component={Link} to="/bmi" onClick={handleClose}>
@@ -42,9 +42,12 @@ function ToggleToolsMenu() {
         <MenuItem component={Link} to="/deficits" onClick={handleClose}>
           Déficits maximaux
         </MenuItem>
-      </Menu >
+        <MenuItem component={Link} to="/calories-counter" onClick={handleClose}>
+          Compteur de calories
+        </MenuItem>
+      </Menu>
     </Box>
   );
-};
+}
 
 export default ToggleToolsMenu;
