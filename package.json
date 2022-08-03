@@ -5,7 +5,7 @@
   "license": "MIT",
   "author": "nadia.m",
   "source": "public/index.html",
-  "private": "true",
+  "private": true,
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "test": "jest --env=jsdom",
@@ -15,7 +15,7 @@
     "client": "webpack serve --config webpack.config.dev.js --hot --open",
     "build": "webpack --config webpack.config.prod.js",
     "server": "nodemon backend/server.js",
-    "clean": "rm -rf .cache dist node_modules"
+    "clean": "rm -rf .cache dist node_modules yarn.lock yarn-error.log"
   },
   "repository": {
     "type": "git",
@@ -77,7 +77,8 @@
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
-    "@mui/material": "^5.9.2",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.9.3",
     "express": "^4.18.1",
     "mongoose": "^6.5.0",
     "react": "^18.2.0",

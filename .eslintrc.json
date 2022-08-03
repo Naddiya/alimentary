@@ -9,7 +9,14 @@
   ],
   "rules": {
     "react/prop-types": 0,
-    "react/react-in-jsx-scope": 0
+    "react/react-in-jsx-scope": 0,
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["@mui/*/*/*", "!@mui/material/test-utils/*"]
+      }
+    ]
+  }
   },
   "plugins": ["react", "import", "jsx-a11y"],
   "parserOptions": {

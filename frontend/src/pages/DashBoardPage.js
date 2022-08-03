@@ -7,6 +7,7 @@ const DashBoardPage = () => {
       <h1>Dashboard</h1>
       <li>current BMI</li>
       <li>15 days last weight mesures</li>
+      <li>chart</li>
       <li>enter weight mesure</li>
       <li>progress chart</li>
     </Box>
