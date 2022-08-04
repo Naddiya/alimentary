@@ -7,15 +7,13 @@ import BodyMassIndexLevel from "../components/tools/forms/bodyMassIndex/BodyMass
 import BodyMassIndexText from "../components/tools/forms/bodyMassIndex/BodyMassIndexText";
 
 const BodyMassIndexPage = () => {
-  const BodyMassIndexForm = () => {
-    return (
-      <Box className="tools">
-        <BodyMassIndexForm />
-        <BodyMassIndexLevel />
-        <BodyMassIndexText />
-      </Box>
-    );
-  };
+  return (
+    <Box className="tools">
+      <BodyMassIndexForm />
+      <BodyMassIndexLevel />
+      <BodyMassIndexText />
+    </Box>
+  );
 };
 
 export default BodyMassIndexPage;
