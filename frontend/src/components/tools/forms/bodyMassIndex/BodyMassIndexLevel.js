@@ -3,52 +3,56 @@ import { GiWeightScale } from "react-icons/gi";
 import { Box } from "@mui/system";
 
 const BodyMassIndexLevel = (bmi) => {
-  const level = "";
-
-  const BodyMassIndexLevel = (bmi) => {
+  const bmiLevel = (bmi) => {
+    let result = "";
     if (bmi < 18.5) {
-      level = "normal";
+      result = "normal";
     } else if (bmi >= 18.5 && bmi <= 25) {
-      level = "insufficient";
+      result = "insufficient";
     } else if (bmi >= 30 && bmi < 35) {
-      level = "moderate-obesity";
+      result = "class1_obesity";
     } else if (bmi >= 35 && bmi < 40) {
-      level = "sever-obesity";
+      result = "class2_obesity";
     } else if (bmi >= 40) {
-      level = "morbid-obesity";
+      result = "class3_obesity";
     }
+    return result;
   };
+
+  const level = bmiLevel(40);
 
   return (
     <Box className="tools-bmi-level">
       <GiWeightScale
         className="tools-bmi-level-item"
         id="insufficient"
-        size="50px"
+        size={level === "insufficient" ? "70px" : "50px"}
         color="blue"
+
+        // opacity={level === "insufficient" ? 1 : 0.3}
       />
       <GiWeightScale
         className="tools-bmi-level-item"
         id="normal"
-        size="50px"
+        size={level === "normal" ? "70px" : "50px"}
         color="green"
       />
       <GiWeightScale
         className="tools-bmi-level-item"
         id="moderate-obesity"
-        size="50px"
+        size={level === "class1_obesity" ? "70px" : "50px"}
         color="yellow"
       />
       <GiWeightScale
         className="tools-bmi-level-item"
-        id="severe-obestity"
-        size="50px"
+        id="severe-obesity"
+        size={level === "class2_obesity" ? "70px" : "50px"}
         color="orange"
       />
       <GiWeightScale
         className="tools-bmi-level-item"
-        id="morbid-obestity"
-        size="50px"
+        id="morbid-obesity"
+        size={level === "class3_obesity" ? "70px" : "50px"}
         color="red"
       />
     </Box>

@@ -1,18 +1,29 @@
 @import "vars";
 
 .navbar {
+  height: 10vh;
   top: 0;
   display: flex;
-  justify-content: flex-end;
-  &-links {
+  justify-content: space-between;
+  padding: 10px;
+  &-logo {
     display: flex;
-    justify-content: center;
-    gap: 15px;
-    & a,
-    .toggle {
-      text-decoration: none;
-      color: $main-font-color;
-      border-radius: 5px;
+    align-items: flex-end;
+  }
+  &-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    &-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      & a,
+      .toggle {
+        text-decoration: none;
+        color: $dark-font-color;
+        border-radius: 5px;
+      }
     }
   }
 }

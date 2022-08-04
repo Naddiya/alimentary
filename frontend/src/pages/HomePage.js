@@ -1,13 +1,15 @@
 import React from "react";
 import { Box } from "@mui/material";
 
-import "../styles/home.scss";
+import "../styles/homePage.scss";
 
 const HomePage = () => {
   return (
-    <Box className="home">
-      <h2 className="home-title">Welcome to Alimentary.</h2>
-      <h3 className="home-subtitle">Reasoned weight loss monitoring tool</h3>
+    <Box className="homePage">
+      <h2 className="homePage-title">Welcome to Alimentary.</h2>
+      <h3 className="homePage-subtitle">
+        Reasoned weight loss monitoring tool
+      </h3>
     </Box>
   );
 };

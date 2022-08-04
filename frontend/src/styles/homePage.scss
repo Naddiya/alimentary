@@ -1,0 +1,22 @@
+@import "vars";
+
+.homePage {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &-title {
+    color: white;
+    text-shadow: 1px 1px 1px $dark-font-color;
+    font-size: 7rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  &-subtitle {
+    margin-top: 0;
+    text-align: center;
+    font-size: 3rem;
+    color: $dark-font-color;
+  }
+}

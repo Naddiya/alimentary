@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, MenuList, MenuItem } from "@mui/material";
+import { Box, MenuList, MenuItem, Link } from "@mui/material";
 
 import "../../styles/footer.scss";
 
@@ -9,10 +9,21 @@ function Footer() {
   return (
     <Box className="footer">
       <MenuList className="footer-top">
-        <MenuItem>Nous contacter</MenuItem>
-        <MenuItem>About</MenuItem>
-        <MenuItem>Réseaux Sociaux</MenuItem>
-        <MenuItem>Mentions Légales</MenuItem>
+        <MenuItem component={Link} to="/contact">
+          Nous contacter
+        </MenuItem>
+        <MenuItem component={Link} to="/about">
+          About
+        </MenuItem>
+        <MenuItem component={Link} to="/network">
+          Réseaux Sociaux
+        </MenuItem>
+        <MenuItem component={Link} to="/sources">
+          Sources
+        </MenuItem>
+        <MenuItem component={Link} to="/legals">
+          Mentions Légales
+        </MenuItem>
       </MenuList>
       <Box className="footer-bottom">
         Fièrement propulsé par Naddiya - {year.getFullYear()}
