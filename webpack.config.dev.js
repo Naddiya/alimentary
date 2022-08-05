@@ -1,7 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const { pathToFileURL } = require("url");
 
 module.exports = {
   mode: "development",
@@ -63,4 +62,9 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
   ],
+  resolve: {
+    alias: {
+      react: path.resolve("./node_modules/react"),
+    },
+  },
 };
