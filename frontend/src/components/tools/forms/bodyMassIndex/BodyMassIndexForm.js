@@ -1,5 +1,12 @@
-import React, { useState } from "react";
-import { calculateBmi } from "../../../../calculations/bodyMassIndexCalculation";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  updateBmi,
+  updateHeight,
+  updateWeight,
+  clearBmiForm,
+} from "../../../../redux/bmiSlice";
+
 import {
   Box,
   Button,
@@ -12,23 +19,18 @@ import {
 } from "@mui/material";
 
 const BodyMassIndexForm = () => {
-  const [bmi, setBmi] = useState(0);
-  const [height, setHeight] = useState("");
-  const [weight, setWeight] = useState("");
-  const [clear, setClear] = useState(false);
+  const { bmi, height, weight } = useSelector((state) => state.bmi);
+
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const result = calculateBmi(weight, height);
-    setBmi(result);
+    dispatch(updateBmi());
   };
 
   const handleClear = (e) => {
     e.preventDefault();
-    setClear(!clear);
-    setWeight("");
-    setHeight("");
-    setBmi(0);
+    dispatch(clearBmiForm());
   };
 
   return (
@@ -43,7 +45,7 @@ const BodyMassIndexForm = () => {
             name="height"
             value={height}
             label="Taille"
-            onChange={(e) => setHeight(e.target.value)}
+            onChange={(e) => dispatch(updateHeight(e.target.value))}
             endAdornment={<InputAdornment position="end">cm</InputAdornment>}
             inputProps={{
               "aria-label": "Taille",
@@ -58,7 +60,7 @@ const BodyMassIndexForm = () => {
             name="weight"
             value={weight}
             label="Poids"
-            onChange={(e) => setWeight(e.target.value)}
+            onChange={(e) => dispatch(updateWeight(e.target.value))}
             endAdornment={<InputAdornment position="end">kg</InputAdornment>}
             inputProps={{
               "aria-label": "Poids",

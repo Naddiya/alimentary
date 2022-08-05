@@ -20,7 +20,7 @@ import {
   calculateMaxEntriesDeficit,
   calculateMaxActivityDeficit,
   calculateDifference,
-} from "../../../../calculations/deficitsCalculations";
+} from "../../../../utils/deficitsUtils";
 
 const DeficitsForm = () => {
   const [clear, setClear] = useState(false);

@@ -1,30 +1,37 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { calculateBmi, evaluateBmiLevel } from "../utils/bodyMassIndexUtils";
 
 const initialState = {
-  value: 0,
+  bmi: "",
+  height: 0,
+  weight: 0,
+  level: "",
 };
 
-export const counterSlice = createSlice({
-  name: "counter",
+export const bmiSlice = createSlice({
+  name: "bmi",
   initialState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
+    updateHeight: (state, action) => {
+      state.height = action.payload;
     },
-    decrement: (state) => {
-      state.value -= 1;
+    updateWeight: (state, action) => {
+      state.weight = action.payload;
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    updateBmi: (state, action) => {
+      const bmi = calculateBmi(state.weight, state.height);
+      state.bmi = bmi;
+
+      const level = evaluateBmiLevel(state.bmi);
+      state.level = level;
+    },
+    clearBmiForm: (state, action) => {
+      return initialState;
     },
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { clearBmiForm, updateBmi, updateHeight, updateWeight } =
+  bmiSlice.actions;
 
-export default counterSlice.reducer;
+export default bmiSlice.reducer;

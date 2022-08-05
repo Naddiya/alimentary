@@ -1,6 +1,8 @@
 export function calculateEnergyNeeds(targetValues) {
-  targetValues.sportTime !== undefined ? Math.abs(targetValues.sportTime) : targetValues.sportTime = 0;
-  
+  targetValues.sportTime !== undefined
+    ? Math.abs(targetValues.sportTime)
+    : (targetValues.sportTime = 0);
+
   const weight = Math.abs(targetValues.weight);
   const height = Math.abs(targetValues.height);
   const age = Math.abs(targetValues.age);
@@ -11,7 +13,9 @@ export function calculateEnergyNeeds(targetValues) {
 
   const basicNeeds = 9.9 * weight + 6.25 * height - 4.92 * age + genderLevel;
 
-  const totalNeeds = Math.floor(basicNeeds * (activity + (sportLevel * sportTime)));
+  const totalNeeds = Math.floor(
+    basicNeeds * (activity + sportLevel * sportTime)
+  );
 
   return totalNeeds;
 }

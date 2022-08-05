@@ -3,7 +3,7 @@ import {
   calculateMaxActivityDeficit,
   calculateMaxEntriesDeficit,
   calculateMaxTotalDeficit,
-} from "../calculations/deficitsCalculations";
+} from "../utils/deficitsUtils";
 
 describe("calculateMaxEntriesDeficit", () => {
   test("calculateMaxEntriesDeficit for 3000 calories should return 450 max deficit", () => {

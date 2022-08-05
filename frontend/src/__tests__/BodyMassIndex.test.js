@@ -1,12 +1,18 @@
 import React from "react";
 import BodyMassIndexForm from "../components/tools/forms/bodyMassIndex/BodyMassIndexForm";
-import { calculateBmi } from "../calculations/bodyMassIndexCalculation";
+import { calculateBmi, evaluateBmiLevel } from "../utils/bodyMassIndexUtils";
 import { render, screen, fireEvent, cleanup } from "@testing-library/react";
+import { Provider } from "react-redux";
+import { store } from "../store";
 
 afterEach(cleanup);
 describe("BodyMassIndex", () => {
   it("should be rendered properly", () => {
-    const { container } = render(<BodyMassIndexForm />);
+    const { container } = render(
+      <Provider store={store}>
+        <BodyMassIndexForm />
+      </Provider>
+    );
 
     container.querySelector("#bmi");
     container.querySelector("#weight");
@@ -53,3 +59,26 @@ describe("calculate weight", () => {
     expect(calculateBmi(undefined, 172)).toEqual(0);
   });
 });
+
+describe("evaluate bmi", () => {
+  test("if bmi equals 17.26 evaluateBmi should return insufficient", () => {
+    expect(evaluateBmiLevel(17.26)).toBe("insufficient");
+  });
+  test("if bmi equals 38.86 evaluateBmi should return normal", () => {
+    expect(evaluateBmiLevel(22.91)).toBe("normal");
+  });
+  test("if bmi equals 38.86 evaluateBmi should return over-weight", () => {
+    expect(evaluateBmiLevel(26.6)).toBe("over-weight");
+  });
+  test("if bmi equals 38.86 evaluateBmi should return class1_obesity", () => {
+    expect(evaluateBmiLevel(34)).toBe("class1_obesity");
+  });
+  test("if bmi equals 38.86 evaluateBmi should return class2_obesity", () => {
+    expect(evaluateBmiLevel(38.86)).toBe("class2_obesity");
+  });
+  test("if bmi equals 38.86 evaluateBmi should return class2_obesity", () => {
+    expect(evaluateBmiLevel(42.74)).toBe("class3_obesity");
+  });
+});
+
+console.log(evaluateBmiLevel(17.26));
