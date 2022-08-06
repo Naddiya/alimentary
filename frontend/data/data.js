@@ -46,7 +46,7 @@ export const sport = [
 export const bmiList = [
   { name: "insuffisant", level: "insufficient", color: "blue" },
   { name: "normale", level: "normal", color: "green" },
-  { name: "sur-poids", level: "over-weight", color: "yellow" },
+  { name: "sur-poids", level: "over-weight", color: "gold" },
   {
     name: "obésité de classe I",
     level: "class1_obesity",

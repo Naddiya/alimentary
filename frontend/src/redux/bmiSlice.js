@@ -3,8 +3,8 @@ import { calculateBmi, evaluateBmiLevel } from "../utils/bodyMassIndexUtils";
 
 const initialState = {
   bmi: "",
-  height: 0,
-  weight: 0,
+  height: "",
+  weight: "",
   level: "",
 };
 

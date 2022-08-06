@@ -3,10 +3,10 @@ import BodyMassIndexForm from "../components/tools/forms/bodyMassIndex/BodyMassI
 import { calculateBmi, evaluateBmiLevel } from "../utils/bodyMassIndexUtils";
 import { render, screen, fireEvent, cleanup } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { store } from "../store";
+import store from "../store";
 
 afterEach(cleanup);
-describe("BodyMassIndex", () => {
+describe("BodyMassIndexForm", () => {
   it("should be rendered properly", () => {
     const { container } = render(
       <Provider store={store}>
@@ -19,13 +19,13 @@ describe("BodyMassIndex", () => {
     container.querySelector("#height");
 
     screen.getByRole("heading", {
-      name: /Calculer l'indice de masse corporelle/i,
+      name: /Indice de masse corporelle/i,
     });
     screen.getByRole("button", { name: /Calcul du BMI/i });
     screen.getByRole("button", { name: /Initialiser/i });
     screen.getByLabelText(/Taille/i);
     screen.getByLabelText(/Poids/i);
-    screen.getByText(/Resultat/i);
+    screen.getByText(/IMC :/i);
   });
 });
 
@@ -80,5 +80,3 @@ describe("evaluate bmi", () => {
     expect(evaluateBmiLevel(42.74)).toBe("class3_obesity");
   });
 });
-
-console.log(evaluateBmiLevel(17.26));

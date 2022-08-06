@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   updateBmi,
@@ -12,8 +12,6 @@ import {
   Button,
   FormControl,
   InputLabel,
-  Card,
-  Paper,
   OutlinedInput,
   InputAdornment,
 } from "@mui/material";
@@ -35,8 +33,8 @@ const BodyMassIndexForm = () => {
 
   return (
     <>
-      <h2>Calculer l'indice de masse corporelle</h2>
-      <Card className="tools-bmi" component="form" onSubmit={handleSubmit}>
+      <h2>Indice de masse corporelle</h2>
+      <Box className="tools-bmi" component="form" onSubmit={handleSubmit}>
         <FormControl variant="outlined">
           <InputLabel>Taille</InputLabel>
           <OutlinedInput
@@ -67,7 +65,9 @@ const BodyMassIndexForm = () => {
             }}
           />
         </FormControl>
-        <Paper className="tools-bmi-result">Resultat {bmi}</Paper>
+        <Box className="tools-bmi-result" id="bmi">
+          IMC : {bmi ? bmi : "?"}
+        </Box>
         <Box className="tools-bmi-action">
           <Button
             id="tools-bmi-action-calculate"
@@ -87,7 +87,7 @@ const BodyMassIndexForm = () => {
             Initialiser
           </Button>
         </Box>
-      </Card>
+      </Box>
     </>
   );
 };

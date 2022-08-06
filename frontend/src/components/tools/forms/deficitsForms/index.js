@@ -5,7 +5,6 @@ import {
   Button,
   FormControl,
   InputLabel,
-  Card,
   FormGroup,
   OutlinedInput,
   Slider,
@@ -84,7 +83,7 @@ const DeficitsForm = () => {
   return (
     <Box className="tools">
       <h2>Calcul des déficits max</h2>
-      <Card className="tools-deficits" component="form" onSubmit={handleSubmit}>
+      <Box className="tools-deficits" component="form" onSubmit={handleSubmit}>
         <FormGroup>
           <FormControl onChange={handleChange} onSubmit={handleSubmit}>
             <InputLabel>Consomation calorique actuelle</InputLabel>
@@ -118,9 +117,9 @@ const DeficitsForm = () => {
             activity={maxActivityDeficit}
           />
         </Box>
-      </Card>
+      </Box>
       <h2>Combiner les déficits</h2>
-      <Card className="tools-deficits" component="form">
+      <Box className="tools-deficits" component="form">
         <FormGroup>
           <FormLabel>
             Le déficit maximum correspond à 25% de la consommation courante,
@@ -155,7 +154,7 @@ const DeficitsForm = () => {
             />
           </FormControl>
         </FormGroup>
-      </Card>
+      </Box>
     </Box>
   );
 };

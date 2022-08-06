@@ -1,8 +1,7 @@
 import { Box, MenuList, MenuItem } from "@mui/material";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from "react";
 import ToggleToolsMenu from "./ToggleToolsMenu.js.js";
-import Bubble from "../visuals/Bubble.js";
 
 import "../../styles/navbar.scss";
 
@@ -11,11 +10,9 @@ function Navbar() {
 
   return (
     <Box className="navbar">
-      <Box className="navbar-logo">
-        <a href="/home">
-          <Bubble />
-        </a>
-      </Box>
+      <a href="/home">
+        <Box className="navbar-logo"></Box>
+      </a>
       <Box className="navbar-menu">
         <MenuList className="navbar-menu-links">
           <MenuItem className="navbar-links-pages" component={Link} to="/">

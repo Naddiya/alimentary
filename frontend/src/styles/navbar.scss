@@ -7,8 +7,12 @@
   justify-content: space-between;
   padding: 10px;
   &-logo {
-    display: flex;
-    align-items: flex-end;
+    width: 40px;
+    height: 40px;
+    background-color: $macaron-green;
+    margin: 0.5rem;
+    padding: 0;
+    filter: drop-shadow(1px 1px 1px black);
   }
   &-menu {
     display: flex;
@@ -21,7 +25,7 @@
       & a,
       .toggle {
         text-decoration: none;
-        color: $dark-font-color;
+        color: $black-font-color;
         border-radius: 5px;
       }
     }

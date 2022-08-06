@@ -7,16 +7,17 @@
   justify-content: center;
 
   &-title {
-    color: white;
-    text-shadow: 1px 1px 1px $dark-font-color;
-    font-size: 7rem;
+    color: $macaron-green;
+    // text-shadow: 1px 1px 1px $dark-font-color;
+    font-size: 20rem;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
   &-subtitle {
     margin-top: 0;
     text-align: center;
     font-size: 3rem;
-    color: $dark-font-color;
+    color: $black-font-color;
   }
 }
