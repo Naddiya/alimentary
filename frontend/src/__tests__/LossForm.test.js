@@ -25,13 +25,11 @@ describe("calculateMaxTotalLoss", () => {
 
 describe("calculateDifference", () => {
   test("calculateDifference for 400 activityCalories should return -25", () => {
-    expect(calculateDifference("activityCalories", 400, 375, 300, 375)).toEqual(
+    expect(calculateDifference("activityRange", 400, 375, 300, 375)).toEqual(
       -25
     );
   });
   test("calculateDifference for 300 entriesCalories should return 75", () => {
-    expect(calculateDifference("entriesCalories", 300, 375, 375, 375)).toEqual(
-      75
-    );
+    expect(calculateDifference("entriesRange", 300, 375, 375, 375)).toEqual(75);
   });
 });
