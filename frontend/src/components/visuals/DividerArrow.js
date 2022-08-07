@@ -13,7 +13,7 @@ const DividerArrow = () => {
   const pageList = [
     "/home",
     "/bmi",
-    "/deficits",
+    "/loss",
     "/energy-needs",
     "/dashboard",
     "/about",

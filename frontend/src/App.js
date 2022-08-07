@@ -5,7 +5,7 @@ import Navbar from "./components/layout/NavBar";
 import Footer from "./components/layout/Footer";
 import HomePage from "./pages/HomePage";
 import BodyMassIndexPage from "./pages/BodyMassIndexPage";
-import DeficitsPage from "./pages/DeficitsPage";
+import LossPage from "./pages/LossPage";
 import EnergyNeedsPage from "./pages/EnergyNeedsPage";
 import DashBoardPage from "./pages/DashBoardPage";
 import AboutPage from "./pages/AboutPage";
@@ -30,7 +30,7 @@ const App = () => {
           <Route exact path="/" element={<HomePage />} />
           <Route path="home" element={<HomePage />} />
           <Route path="bmi" element={<BodyMassIndexPage />} />
-          <Route path="deficits" element={<DeficitsPage />} />
+          <Route path="loss" element={<LossPage />} />
           <Route path="energy-needs" element={<EnergyNeedsPage />} />
           <Route path="dashboard" element={<DashBoardPage />} />
           <Route path="about" element={<AboutPage />} />

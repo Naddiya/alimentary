@@ -39,7 +39,7 @@ function ToggleToolsMenu() {
         <MenuItem component={Link} to="/energy-needs" onClick={handleClose}>
           Besoins energétiques
         </MenuItem>
-        <MenuItem component={Link} to="/deficits" onClick={handleClose}>
+        <MenuItem component={Link} to="/loss" onClick={handleClose}>
           Déficits maximaux
         </MenuItem>
         <MenuItem component={Link} to="/calories-counter" onClick={handleClose}>

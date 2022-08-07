@@ -2,14 +2,14 @@ import React from "react";
 import { Box } from "@mui/system";
 import "../styles/tools.scss";
 
-import DeficitsForm from "../components/tools/forms/deficitsForms";
+import LossForm from "../components/tools/forms/lossForm";
 
-const DeficitsPage = () => {
+const LossPage = () => {
   return (
     <Box className="tools">
-      <DeficitsForm />
+      <LossForm />
     </Box>
   );
 };
 
-export default DeficitsPage;
+export default LossPage;

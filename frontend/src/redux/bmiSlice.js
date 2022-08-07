@@ -19,11 +19,9 @@ export const bmiSlice = createSlice({
       state.weight = action.payload;
     },
     updateBmi: (state, action) => {
-      const bmi = calculateBmi(state.weight, state.height);
-      state.bmi = bmi;
+      state.bmi = calculateBmi(state.weight, state.height);
 
-      const level = evaluateBmiLevel(state.bmi);
-      state.level = level;
+      state.level = evaluateBmiLevel(state.bmi);
     },
     clearBmiForm: (state, action) => {
       return initialState;
