@@ -2,9 +2,10 @@ import React from "react";
 import { Box } from "@mui/material";
 import "../styles/tools.scss";
 
-import EnergyNeedsForm from "../components/tools/forms/EnergyNeedsForm";
+import EnergyNeedsForm from "../components/tools/EnergyNeedsForm";
 
-const EnergyNeedsPage = () => {
+const EnergyNeedsPage = () =>
+{
   return (
     <Box className="tools">
       <EnergyNeedsForm />

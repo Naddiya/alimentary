@@ -1,13 +1,15 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
+import
+{
   updateBmi,
   updateHeight,
   updateWeight,
   clearBmiForm,
-} from "../../../../redux/bmiSlice";
+} from "../../../redux/bmiSlice";
 
-import {
+import
+{
   Box,
   Button,
   FormControl,
@@ -16,17 +18,20 @@ import {
   InputAdornment,
 } from "@mui/material";
 
-const BodyMassIndexForm = () => {
+const BodyMassIndexForm = () =>
+{
   const { bmi, height, weight } = useSelector((state) => state.bmi);
 
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) =>
+  {
     e.preventDefault();
     dispatch(updateBmi());
   };
 
-  const handleClear = (e) => {
+  const handleClear = (e) =>
+  {
     e.preventDefault();
     dispatch(clearBmiForm());
   };
@@ -34,20 +39,20 @@ const BodyMassIndexForm = () => {
   return (
     <>
       <h2>Indice de masse corporelle</h2>
-      <Box className="tools-bmi" component="form" onSubmit={handleSubmit}>
+      <Box className="tools-bmi" component="form" onSubmit={ handleSubmit }>
         <FormControl variant="outlined">
           <InputLabel>Taille</InputLabel>
           <OutlinedInput
             type="number"
             id="height"
             name="height"
-            value={height}
+            value={ height }
             label="Taille"
-            onChange={(e) => dispatch(updateHeight(e.target.value))}
-            endAdornment={<InputAdornment position="end">cm</InputAdornment>}
-            inputProps={{
+            onChange={ (e) => dispatch(updateHeight(e.target.value)) }
+            endAdornment={ <InputAdornment position="end">cm</InputAdornment> }
+            inputProps={ {
               "aria-label": "Taille",
-            }}
+            } }
           />
         </FormControl>
         <FormControl>
@@ -56,17 +61,17 @@ const BodyMassIndexForm = () => {
             type="number"
             id="weight"
             name="weight"
-            value={weight}
+            value={ weight }
             label="Poids"
-            onChange={(e) => dispatch(updateWeight(e.target.value))}
-            endAdornment={<InputAdornment position="end">kg</InputAdornment>}
-            inputProps={{
+            onChange={ (e) => dispatch(updateWeight(e.target.value)) }
+            endAdornment={ <InputAdornment position="end">kg</InputAdornment> }
+            inputProps={ {
               "aria-label": "Poids",
-            }}
+            } }
           />
         </FormControl>
         <Box className="tools-bmi-result" id="bmi">
-          IMC : {bmi ? bmi : "?"}
+          IMC : { bmi ? bmi : "?" }
         </Box>
         <Box className="tools-bmi-action">
           <Button
@@ -82,7 +87,7 @@ const BodyMassIndexForm = () => {
             variant="outlined"
             color="warning"
             className="button-clear"
-            onClick={handleClear}
+            onClick={ handleClear }
           >
             Initialiser
           </Button>
